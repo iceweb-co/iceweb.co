@@ -1,0 +1,150 @@
+@import 'bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Zilla+Slab:400,700');
+
+
+// TYPOGRAPHY //////////////////////////////////////////////////////////////////
+body {
+  font-family: 'Zilla Slab', serif;
+}
+
+p {
+  max-width: 33em;
+}
+
+
+// NAVBAR //////////////////////////////////////////////////////////////////////
+.mainNavbar {
+  flex-wrap: nowrap;
+
+  .navbar-brand {
+    margin-right: 3rem;
+
+    img {
+      max-height: 32px;
+      @include media-breakpoint-up(sm) {
+        max-height: 40px;
+      }
+      @include media-breakpoint-up(lg) {
+        max-height: 48px;
+      }
+    }
+  }
+}
+
+
+// HERO ////////////////////////////////////////////////////////////////////////
+.hero {
+  background-color: #5dbbe0;
+  background-image: url(/hero-bg.svg);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+  h1 {
+    @include media-breakpoint-down(lg) {
+      font-size: 4.5rem;
+    }
+    @include media-breakpoint-down(md) {
+      font-size: 3.83rem;
+    }
+    @include media-breakpoint-down(sm) {
+      font-size: 3.17rem;
+    }
+    @include media-breakpoint-down(xs) {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+
+// CUSTOMER LIST ///////////////////////////////////////////////////////////////
+.customerList {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @include media-breakpoint-up(md) {
+    flex-wrap: nowrap;
+  }
+}
+
+.customerList__item {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: 40%;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    filter: grayscale(33.33%);
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .customerList__item--nesk {
+   flex-basis: 18%;
+  }
+  .customerList__item--jawahir {
+   flex-basis: 8.9%;
+  }
+  .customerList__item--jaddarah {
+   flex-basis: 11%;
+  }
+  .customerList__item--steelcase {
+   flex-basis: 13%;
+  }
+  .customerList__item--wadialnahil {
+   flex-basis: 8%;
+  }
+  .customerList__item--safwafood {
+   flex-basis: 11%;
+  }
+}
+
+
+// PRICING TABLES //////////////////////////////////////////////////////////////
+.pricingTable__icon {
+  float: left;
+  width: 32px;
+  height: 32px;
+  margin-right: 1rem;
+}
+
+// CONTACT FORM ////////////////////////////////////////////////////////////////
+.contactForm {
+  @include media-breakpoint-up(md) {
+    margin-top: 2rem;
+  }
+}
+
+.contactForm__container {
+  border-radius: 1rem;
+  @include media-breakpoint-up(md) {
+    margin-top: -11rem;
+    border: .25rem solid map-get($theme-colors, accent-dark);
+  }
+}
+
+
+// FOOTER //////////////////////////////////////////////////////////////////////
+.footer {
+  position: relative;
+}
+
+.footer__bg::before {
+  @extend .container;
+  @include media-breakpoint-up(md) {
+    content: ' ';
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background-image: url('/footer-legal.svg');
+    background-repeat: no-repeat;
+    background-position: 100% 4rem;
+    background-size: 14rem auto;
+    background-origin: content-box;
+    opacity: 0.05;
+  }
+}

@@ -40,6 +40,11 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      Util: 'exports-loader?Util!bootstrap/js/dist/util'
+    }),
     new CleanWebpackPlugin(['dist/*']),
     new HtmlWebpackPlugin({
       template: './src/index.html'

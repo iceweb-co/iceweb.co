@@ -292,10 +292,10 @@
 
           <div class="col-md col-xl-5">
             <div class="contactForm__container bg-light py-4 px-3 p-md-4">
-              <form class="contactForm__form"
-                action=""
-                method="post"
-                data-submitting="false">
+              <!-- Works through AWS Lambda -->
+              <form id="contactForm" class="contactForm__form"
+                action="https://mltm270xub.execute-api.eu-west-1.amazonaws.com/api/"
+                method="post" novalidate data-submitting="false">
 
                 <noscript class="d-block p-1 bg-danger text-white">
                   This form requires JavaScript to work. Please contact us by email.
@@ -311,22 +311,31 @@
                   <label for="contact-form-email">Email</label>
                   <input id="contact-form-email" class="form-control"
                     name="email" dir="auto" type="text"
-                    data-required="" data-feedback="Please enter your email">
+                    required
+                    data-feedback="Please enter your email">
+                  <div class="invalid-feedback">
+                    Please enter a valid email address
+                  </div>
                 </div>
 
                 <div class="form-group">
                   <label for="contact-form-message">Message</label>
                   <textarea id="contact-form-message" class="form-control"
                     rows="3" name="message" dir="auto"
-                    data-required="" data-feedback="Please enter your message"></textarea>
+                    required
+                    data-feedback="Please enter your message"></textarea>
+                  <div class="invalid-feedback">
+                    Please enter your message
+                  </div>
                 </div>
 
                 <div style="position: absolute; left: -5000px;"
                   aria-hidden="true">
-                  <input name="rbfnsym2titu" tabindex="-1" value="" type="text">
+                  <input name="leave-empty" tabindex="-1" value="" type="text">
                 </div>
 
-                <button class="btn btn-primary btn-block" type="submit">
+                <button class="btn btn-primary btn-block" type="submit"
+                  disabled>
                   Send
                 </button>
               </form>

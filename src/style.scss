@@ -35,7 +35,7 @@ p {
 // HERO ////////////////////////////////////////////////////////////////////////
 .hero {
   background-color: #5dbbe0;
-  background-image: url(/hero-bg.svg);
+  //background-image: url(/hero-bg.svg);
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
@@ -142,7 +142,7 @@ p {
     top: 0; left: 0; bottom: 0; right: 0;
     background-image: url('/footer-legal.svg');
     background-repeat: no-repeat;
-    background-position: 100% 4rem;
+    background-position: 90% 4rem;
     background-size: 14rem auto;
     background-origin: content-box;
     opacity: 0.05;

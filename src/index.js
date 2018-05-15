@@ -1,8 +1,12 @@
-import 'bootstrap/js/dist/alert'
+"use strict";
+
+import 'bootstrap/js/dist/alert';
+import fontawesome from '@fortawesome/fontawesome';
+import faExternalLinkAlt from '@fortawesome/fontawesome-pro-solid/faExternalLinkAlt';
 
 import './style.scss';
-import readyContactForm from "./contact-form";
+import readyContactForm from './contact-form';
 
-jQuery(function onDocumentReady() {
-  readyContactForm('contactForm');
-});
+
+readyContactForm('contactForm');
+fontawesome.library.add(faExternalLinkAlt);

@@ -1,0 +1,82 @@
+stages:
+  - build
+  - deploy
+
+
+# Build the css & js using Webpack
+build_assets:
+  image: node:8
+  stage: build
+  environment:
+    name: production
+  only:
+    - master
+
+  cache:
+    key: ${CI_JOB_NAME}
+    paths:
+    - node_modules/
+
+  before_script:
+  - npm install
+  script:
+  - npm run build
+  artifacts:
+    paths:
+    - dist
+
+
+# cp the Webpack build + static assets (images, etc...) to the s3 bucket
+deploy_to_s3:
+  image: python:latest
+  stage: deploy
+  environment:
+    name: production
+  only:
+    - master
+
+  cache:
+    key: ${CI_JOB_NAME}
+    paths:
+    - .cache/
+    - venv/
+  variables:
+    S3_BUCKET: "www.iceweb.co"
+    PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache"
+
+  before_script:
+  - python -V
+  - pip install virtualenv
+  - virtualenv venv
+  - source venv/bin/activate
+  - pip install --upgrade awscli
+  script:
+  # everything in dist except html, css, js
+  - >
+    aws s3 mv dist/ s3://$S3_BUCKET --recursive
+    --exclude "*.html" --exclude "*.css" --exclude "*.js"
+  # only html files
+  - >
+    aws s3 mv dist/ s3://$S3_BUCKET --recursive
+    --exclude "*.css" --exclude "*.js"
+    --cache-control="no-cache"
+  # only css, js
+  - >
+    aws s3 mv dist/ s3://$S3_BUCKET --recursive
+    --cache-control="max-age=31536000"
+  # static assets like jpg, png, etc...
+  - >
+    aws s3 mv static/ s3://$S3_BUCKET/static --recursive
+    --cache-control="max-age=86400"
+  # mv favicon into correct place
+  - aws s3 mv s3://$S3_BUCKET/static/favicon.ico s3://$S3_BUCKET
+  # create fake index.html to redirect root to /gsuite
+  # - echo "" > fake-index.html
+  # - aws s3 mv fake-index.html s3://$S3_BUCKET/index.html --website-redirect "/gsuite/index.html"
+  - >
+    aws s3api put-object --bucket $S3_BUCKET --key index.html
+    --website-redirect-location "/gsuite"
+  # update website hosting configuration
+  - >
+    aws s3api put-bucket-website --bucket $S3_BUCKET
+    --website-configuration file://website.json

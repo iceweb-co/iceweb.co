@@ -3,6 +3,9 @@ const glob = require('glob');
 const webpack = require('webpack');
 const common = require('./webpack.common.js');
 const merge = require('webpack-merge');
+const mergeWithStrategy = merge.strategy({
+  'module.rules': 'prepend'
+});
 
 const SriPlugin = require('webpack-subresource-integrity');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -10,7 +13,7 @@ const PurgecssPlugin = require('purgecss-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
-module.exports = merge(common, {
+module.exports = mergeWithStrategy(common, {
   mode: 'production',
 
   optimization: {
@@ -41,7 +44,14 @@ module.exports = merge(common, {
   ],
 
   module: {
-    rules: []
+    rules: [
+      {
+        test: /\.(scss)$/,
+        use: [
+          { loader: MiniCssExtractPlugin.loader }
+        ]
+      }
+    ]
   },
 
   output: {

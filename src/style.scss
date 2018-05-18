@@ -144,11 +144,15 @@ p {
     content: ' ';
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
-    background-image: url('/footer-legal.svg');
+    background-image: url('/static/footer-legal.svg');
     background-repeat: no-repeat;
-    background-position: 90% 4rem;
+    background-position: 90% 6rem;
     background-size: 14rem auto;
     background-origin: content-box;
     opacity: 0.05;
   }
+}
+
+.footer__content {
+  position: relative;
 }

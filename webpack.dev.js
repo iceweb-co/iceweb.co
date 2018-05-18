@@ -9,7 +9,7 @@ module.exports = mergeWithStrategy(common, {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
   devServer: {
-    contentBase: '../',
+    contentBase: './',
     hot: true
   },
 

@@ -67,9 +67,10 @@ deploy_to_s3:
   # static assets like jpg, png, etc...
   - >
     aws s3 mv static/ s3://$S3_BUCKET/gsuite/static --recursive
+    --exclude "favicon.ico"
     --cache-control="max-age=86400"
   # mv favicon into correct place
-  - aws s3 mv s3://$S3_BUCKET/static/favicon.ico s3://$S3_BUCKET
+  - aws s3 mv static/favicon.ico s3://$S3_BUCKET
   # create fake index.html to redirect root to /gsuite
   - >
     aws s3api put-object --bucket $S3_BUCKET --key index.html

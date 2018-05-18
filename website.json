@@ -1,0 +1,29 @@
+{
+  "IndexDocument": {
+    "Suffix": "index.html"
+  },
+  "RoutingRules": [
+    {
+      "Condition": {
+        "KeyPrefixEquals": "google-for-work"
+      },
+      "Redirect": {
+        "HostName": "www.iceweb.co",
+        "HttpRedirectCode": "302",
+        "Protocol": "https",
+        "ReplaceKeyWith": "gsuite"
+      }
+    },
+    {
+      "Condition": {
+        "KeyPrefixEquals": "privacy-policy"
+      },
+      "Redirect": {
+        "HostName": "www.iceweb.co",
+        "HttpRedirectCode": "302",
+        "Protocol": "https",
+        "ReplaceKeyWith": "legal/musafer-privacy-policy"
+      }
+    }
+  ]
+}

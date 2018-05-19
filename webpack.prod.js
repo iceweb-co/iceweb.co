@@ -35,7 +35,7 @@ module.exports = mergeWithStrategy(common, {
       paths: glob.sync(
         `${path.resolve(__dirname, 'src')}/**/*`, { nodir: true }
       ),
-      whitelistPatterns: [/^badge-/]
+      whitelistPatterns: []
     }),
     new SriPlugin({
       hashFuncNames: ['sha256']

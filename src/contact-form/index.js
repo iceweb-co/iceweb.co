@@ -144,8 +144,3 @@ function toggleDanger(rawInput, state, message) {
     //$('.' + feedbackClass, input.parent()).remove();
   }
 }
-
-
-function nodeListToArray(nodeList) {
-  return Array.prototype.slice.call(nodeList);
-}

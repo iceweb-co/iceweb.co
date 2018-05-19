@@ -29,7 +29,7 @@ module.exports = mergeWithStrategy(common, {
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash].min.css'
+      filename: 'css/[contenthash].min.css'
     }),
     new PurgecssPlugin({
       paths: glob.sync(
@@ -39,8 +39,7 @@ module.exports = mergeWithStrategy(common, {
     }),
     new SriPlugin({
       hashFuncNames: ['sha256']
-    }),
-    new webpack.HashedModuleIdsPlugin(),
+    })
   ],
 
   module: {
@@ -53,9 +52,9 @@ module.exports = mergeWithStrategy(common, {
       }
     ]
   },
-  
+
   output: {
-    filename: 'js/[name].[chunkhash].min.js',
+    filename: 'js/[chunkhash].min.js',
     path: path.resolve(__dirname, 'dist/gsuite'),
     crossOriginLoading: 'anonymous',
     publicPath: ''

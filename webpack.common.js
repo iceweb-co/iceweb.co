@@ -40,9 +40,6 @@ module.exports = {
     new CleanWebpackPlugin(['dist/*']),
     new HtmlWebpackPlugin({
       template: './src/index.html'
-    }),
-    new webpack.optimize.SplitChunksPlugin({
-      chunks: 'all'
-    }),
+    })
   ]
 };

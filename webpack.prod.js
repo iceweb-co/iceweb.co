@@ -53,9 +53,10 @@ module.exports = mergeWithStrategy(common, {
       }
     ]
   },
-
+  
   output: {
     filename: 'js/[name].[chunkhash].min.js',
+    path: path.resolve(__dirname, 'dist/gsuite'),
     crossOriginLoading: 'anonymous',
     publicPath: ''
   }

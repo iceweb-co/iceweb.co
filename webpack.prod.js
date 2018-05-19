@@ -18,27 +18,25 @@ module.exports = mergeWithStrategy(common, {
 
   optimization: {
     minimizer: [
+      new OptimizeCSSAssetsPlugin(),
       new UglifyJsPlugin({
         cache: true,
         parallel: true,
         sourceMap: false
-      }),
-      new OptimizeCSSAssetsPlugin()
+      })
     ]
   },
 
   plugins: [
+    new SriPlugin({ hashFuncNames: ['sha256'] }),
     new MiniCssExtractPlugin({
       filename: 'css/[contenthash].min.css'
     }),
     new PurgecssPlugin({
+      whitelistPatterns: [],
       paths: glob.sync(
         `${path.resolve(__dirname, 'src')}/**/*`, { nodir: true }
-      ),
-      whitelistPatterns: []
-    }),
-    new SriPlugin({
-      hashFuncNames: ['sha256']
+      )
     })
   ],
 

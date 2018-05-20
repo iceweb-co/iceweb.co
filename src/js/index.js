@@ -7,9 +7,6 @@ import faExternalLinkAlt from '@fortawesome/fontawesome-pro-solid/faExternalLink
 import '../scss/style.scss';
 import readyContactForm from './contact-form';
 
+
+readyContactForm('contactForm');
 fontawesome.library.add(faExternalLinkAlt);
-try {
-  readyContactForm('contactForm');
-} catch(e) {
-  console.error(e);
-}

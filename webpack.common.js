@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -38,9 +37,6 @@ module.exports = {
       $: 'jquery',
       jQuery: 'jquery',
       Util: 'exports-loader?Util!bootstrap/js/dist/util'
-    }),
-    new HtmlWebpackPlugin({
-      template: p('layouts/_default/baseof.html')
     }),
     new ManifestPlugin({
       fileName: p('data/assets/manifest.json')

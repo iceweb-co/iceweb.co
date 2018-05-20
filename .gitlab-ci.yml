@@ -91,7 +91,7 @@ deploy_to_s3:
     aws s3 mv $PUBLIC_DIR/ s3://$S3_BUCKET --recursive
     --exclude "*"
     --include "*.jpg" --include "*.png" --include "*.svg" --include "*.ico"
-    --cache-control="max-age=86400"
+    --cache-control="max-age=604800"
   # everything else
   - >
     aws s3 mv $PUBLIC_DIR/ s3://$S3_BUCKET --recursive

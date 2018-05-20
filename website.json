@@ -11,7 +11,7 @@
         "HostName": "www.iceweb.co",
         "HttpRedirectCode": "302",
         "Protocol": "https",
-        "ReplaceKeyWith": "gsuite"
+        "ReplaceKeyWith": "en/gsuite"
       }
     },
     {
@@ -22,7 +22,7 @@
         "HostName": "www.iceweb.co",
         "HttpRedirectCode": "302",
         "Protocol": "https",
-        "ReplaceKeyWith": "legal/musafer-privacy-policy"
+        "ReplaceKeyWith": "en/legal/musafer-privacy-policy"
       }
     }
   ]

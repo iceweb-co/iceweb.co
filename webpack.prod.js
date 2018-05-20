@@ -7,11 +7,12 @@ const mergeWithStrategy = merge.strategy({
   'module.rules': 'prepend'
 });
 
-const SriPlugin = require('webpack-subresource-integrity');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+
+const p = (file) => path.resolve(__dirname, file);
 
 module.exports = mergeWithStrategy(common, {
   mode: 'production',
@@ -28,15 +29,12 @@ module.exports = mergeWithStrategy(common, {
   },
 
   plugins: [
-    new SriPlugin({ hashFuncNames: ['sha256'] }),
     new MiniCssExtractPlugin({
-      filename: 'css/[contenthash].min.css'
+      filename: 'css/[contenthash].css'
     }),
     new PurgecssPlugin({
       whitelistPatterns: [],
-      paths: glob.sync(
-        `${path.resolve(__dirname, 'src')}/**/*`, { nodir: true }
-      )
+      paths: glob.sync(`${p('layouts')}/**/*`, { nodir: true })
     })
   ],
 
@@ -52,8 +50,8 @@ module.exports = mergeWithStrategy(common, {
   },
 
   output: {
-    filename: 'js/[chunkhash].min.js',
-    path: path.resolve(__dirname, 'dist/gsuite'),
+    filename: 'js/[chunkhash].js',
+    path: p('static'),
     crossOriginLoading: 'anonymous',
     publicPath: ''
   }

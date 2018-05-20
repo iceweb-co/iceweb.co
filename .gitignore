@@ -1,8 +1,6 @@
-.virtualenv
 .venv
 node_modules
-dist
-public
-static/css
-static/js
+
+.dist
+.public
 data/assets

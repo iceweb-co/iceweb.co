@@ -53,7 +53,7 @@ module.exports = mergeWithStrategy(common, {
 
   output: {
     filename: 'js/[chunkhash].js',
-    path: p('static'),
+    path: p('.dist'),
     crossOriginLoading: 'anonymous',
     publicPath: ''
   }

@@ -18,14 +18,13 @@ webpack:
     paths:
     - node_modules/
 
-  before_script:
-  - npm install
   script:
+  - npm install
   - npm run build
   artifacts:
-    expire_in: 60 minutes
+    expire_in: 30 minutes
     paths:
-    - static
+    - .dist
     - data/assets
 
 
@@ -38,11 +37,14 @@ hugo:
     only:
       - master
 
+    variables:
+      GIT_STRATEGY: fetch
+
     script:
     - hugo
     artifacts:
       paths:
-      - public
+      - .public
 
 
 # cp the Webpack build + static assets (images, etc...) to the s3 bucket
@@ -62,7 +64,8 @@ deploy_to_s3:
     - .cache/
     - venv/
   variables:
-    PUBLIC_DIR: public
+    GIT_STRATEGY: none
+    PUBLIC_DIR: .public
     S3_BUCKET: www.iceweb.co
     PIP_CACHE_DIR: $CI_PROJECT_DIR/.cache
 

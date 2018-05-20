@@ -85,7 +85,7 @@ deploy_to_s3:
     --cache-control="max-age=31536000"
   # static assets like jpg, png, etc...
   - >
-    aws s3 mv $PUBLIC_DIR/ s3://$S3_BUCKET/gsuite/static --recursive
+    aws s3 mv $PUBLIC_DIR/ s3://$S3_BUCKET --recursive
     --exclude "*"
     --include "*.jpg" --include "*.png" --include "*.svg" --include "*.ico"
     --cache-control="max-age=86400"

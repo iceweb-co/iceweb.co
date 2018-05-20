@@ -1,3 +1,3 @@
 ---
-aliases: [/ar, /en]
+aliases: [/ar, /en, /gsuite]
 ---

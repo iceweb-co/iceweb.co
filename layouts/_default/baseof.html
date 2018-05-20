@@ -14,7 +14,7 @@
   <body>
     {{ block "main" . }}{{ end }}
 
-    <script type="application/javascript" src="{{ (index .Site.Data.assets.manifest "main.js") | relURL }}"></script>
+    <script type="text/javascript" src="{{ (index .Site.Data.assets.manifest "main.js") | relURL }}"></script>
   </body>
 
 </html>

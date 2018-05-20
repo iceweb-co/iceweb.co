@@ -24,6 +24,7 @@ build_assets:
   artifacts:
     paths:
     - static
+    - data/assets
 
 
 # Build the Hugo site
@@ -34,11 +35,6 @@ build_hugo:
       name: production
     only:
       - master
-
-    cache:
-      key: ${CI_JOB_NAME}
-      paths:
-      - node_modules/
 
     script:
     - hugo

@@ -1,11 +1,11 @@
 stages:
   - build_assets
-  - build_hugo
+  - build_site
   - deploy
 
 
 # Build the css & js using Webpack
-build_assets:
+webpack:
   image: node:8
   stage: build_assets
   environment:
@@ -30,9 +30,9 @@ build_assets:
 
 
 # Build the Hugo site
-build_hugo:
+hugo:
     image: registry.gitlab.com/pages/hugo:latest
-    stage: build_hugo
+    stage: build_site
     environment:
       name: production
     only:
@@ -51,6 +51,8 @@ deploy_to_s3:
   stage: deploy
   environment:
     name: production
+  dependencies:
+    - hugo
   only:
     - master
 

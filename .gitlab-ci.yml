@@ -64,7 +64,7 @@ deploy_to_s3:
     - .cache/
     - venv/
   variables:
-    GIT_STRATEGY: none
+    GIT_STRATEGY: fetch
     PUBLIC_DIR: .public
     S3_BUCKET: www.iceweb.co
     PIP_CACHE_DIR: $CI_PROJECT_DIR/.cache

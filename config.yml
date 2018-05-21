@@ -1,5 +1,6 @@
 baseURL: https://www.iceweb.co/
 disableKinds: [taxonomy, taxonomyTerm, RSS]
+publishDir: dist
 
 disableLanguages: []
 defaultContentLanguage: en

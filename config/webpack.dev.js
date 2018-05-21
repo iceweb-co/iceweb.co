@@ -1,7 +1,6 @@
-const path = require('path');
 const webpack = require('webpack');
+const util = require('./webpack.util.js');
 const loaders = require('./webpack.loaders.js');
-const resolve = (f) => path.resolve(__dirname, f);
 const common = require('./webpack.common.js');
 const merge = require('webpack-merge');
 

@@ -1,6 +1,5 @@
 .venv
 node_modules
 
-static/dist
+dist
 data/assets.json
-public

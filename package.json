@@ -4,8 +4,8 @@
   "description": "The future",
   "private": true,
   "scripts": {
-    "watch": "webpack --watch --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "watch": "webpack --watch --config config/webpack.dev.js",
+    "build": "webpack --config config/webpack.prod.js"
   },
   "repository": {
     "type": "git",

@@ -1,60 +1,50 @@
 const path = require('path');
-const glob = require('glob');
 const webpack = require('webpack');
+const loaders = require('./webpack.loaders.js');
+const resolve = (f) => path.resolve(__dirname, f);
 const common = require('./webpack.common.js');
 const merge = require('webpack-merge');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const glob = require('glob');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const MiniCssExtPlugin = require('mini-css-extract-plugin');
 
-const p = (file) => path.resolve(__dirname, file);
-const mergeWithStrategy = merge.strategy({
-  'module.rules': 'prepend'
-});
 
-module.exports = mergeWithStrategy(common, {
+const purgeCssDirs = ['layouts', 'src/js'];
+const purgeCssPaths = purgeCssDirs.reduce((all, current) => {
+  return all.concat(
+    glob.sync(`${resolve(current)}/**/*`, { nodir: true })
+  );
+}, []);
+
+
+module.exports = merge(common, {
   mode: 'production',
 
-  optimization: {
-    minimizer: [
-      new OptimizeCSSAssetsPlugin(),
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: false
-      })
-    ]
+  output: {
+    filename: 'js/[chunkhash].js',
   },
-
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'css/[contenthash].css'
-    }),
-    new PurgecssPlugin({
-      whitelistPatterns: [],
-      paths: ['layouts', 'src/js']
-        .reduce((all, current) => all.concat(
-          glob.sync(`${p(current)}/**/*`, { nodir: true })), []
-        )
-    })
-  ],
 
   module: {
     rules: [
       {
-        test: /\.(scss)$/,
+        test: /\.scss$/,
         use: [
-          { loader: MiniCssExtractPlugin.loader }
+          { loader: MiniCssExtPlugin.loader },
+          loaders['css-loader'],
+          loaders['postcss-loader'],
+          loaders['sass-loader'],
         ]
       }
     ]
   },
 
-  output: {
-    filename: 'js/[chunkhash].js',
-    path: p('.dist'),
-    crossOriginLoading: 'anonymous',
-    publicPath: ''
-  }
+  plugins: [
+    new PurgecssPlugin({
+      whitelistPatterns: [],
+      paths: purgeCssPaths
+    }),
+    new MiniCssExtPlugin({
+      filename: 'css/[contenthash].css'
+    }),
+  ],
 });

@@ -8,13 +8,17 @@
     <meta name="description" content="{{ .Site.Params.description }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="{{ (index .Site.Data.assets.manifest "main.css") | relURL }}" />
+    {{ with (index .Site.Data.assets "gsuite.css") }}
+      <link href="{{ . | relURL }}" rel="stylesheet" />
+    {{ end }}
   </head>
 
   <body>
     {{ block "main" . }}{{ end }}
 
-    <script src="{{ (index .Site.Data.assets.manifest "main.js") | relURL }}" defer></script>
+    {{ with (index .Site.Data.assets "gsuite.js") }}
+      <script src="{{ . | relURL }}" defer></script>
+    {{ end }}
   </body>
 
 </html>

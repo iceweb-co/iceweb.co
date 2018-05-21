@@ -24,8 +24,8 @@ webpack:
   artifacts:
     expire_in: 30 minutes
     paths:
-    - .dist
-    - data/assets
+    - static/dist
+    - data
 
 
 # Build the Hugo site
@@ -44,7 +44,7 @@ hugo:
     - hugo
     artifacts:
       paths:
-      - .public
+      - public
 
 
 # cp the Webpack build + static assets (images, etc...) to the s3 bucket
@@ -65,7 +65,7 @@ deploy_to_s3:
     - venv/
   variables:
     GIT_STRATEGY: fetch
-    PUBLIC_DIR: .public
+    PUBLIC_DIR: public
     S3_BUCKET: www.iceweb.co
     PIP_CACHE_DIR: $CI_PROJECT_DIR/.cache
 

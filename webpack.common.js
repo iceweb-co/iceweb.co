@@ -1,35 +1,19 @@
 const path = require('path');
 const webpack = require('webpack');
-
+const loaders = require('./webpack.loaders.js');
+const resolve = (f) => path.resolve(__dirname, f);
 const ManifestPlugin = require('webpack-manifest-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const p = (file) => path.resolve(__dirname, file);
 
 module.exports = {
-  entry: p('src/js/index.js'),
+  mode: 'none',
 
-  module: {
-    rules: [
-      {
-        test: /\.(scss)$/,
-        include: p('src/scss'),
-        use: [
-          { loader: 'css-loader' },
-          { loader: 'postcss-loader',
-            options: {
-              plugins: function () {
-                return [
-                  require('precss'),
-                  require('autoprefixer')
-                ];
-              }
-            }
-          },
-          { loader: 'sass-loader' },
-        ]
-      }
-    ]
+  entry: {
+    gsuite: resolve('src/js/index.js')
+  },
+
+  output: {
+    path: resolve('static/dist'),
   },
 
   plugins: [
@@ -39,7 +23,8 @@ module.exports = {
       Util: 'exports-loader?Util!bootstrap/js/dist/util'
     }),
     new ManifestPlugin({
-      fileName: p('data/assets/manifest.json')
+      fileName: resolve('data/assets.json'),
+      publicPath: 'dist/'
     })
   ]
 };

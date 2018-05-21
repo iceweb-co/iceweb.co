@@ -1,30 +1,31 @@
+const path = require('path');
 const webpack = require('webpack');
+const loaders = require('./webpack.loaders.js');
+const resolve = (f) => path.resolve(__dirname, f);
 const common = require('./webpack.common.js');
 const merge = require('webpack-merge');
-const mergeWithStrategy = merge.strategy({
-  'module.rules': 'prepend'
-});
 
-module.exports = mergeWithStrategy(common, {
+
+module.exports = merge(common, {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
-  devServer: {
-    contentBase: './',
-    hot: true
-  },
 
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
+  // Should not use [hash] or [chunkhash] for development
+  output: {
+    filename: 'js/[name].js'
+  },
 
   module: {
     rules: [
       {
-        test: /\.(scss)$/,
+        test: /\.scss$/,
         use: [
-          { loader: 'style-loader' }
+          loaders['style-loader'],
+          loaders['css-loader'],
+          loaders['postcss-loader'],
+          loaders['sass-loader'],
         ]
       }
     ]
-  }
+  },
 });

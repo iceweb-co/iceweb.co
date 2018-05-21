@@ -12,7 +12,7 @@ module.exports = {
   },
 
   output: {
-    path: util.resolve('dist'),
+    path: util.resolve('dist/assets'),
   },
 
   plugins: [
@@ -22,8 +22,7 @@ module.exports = {
       Util: 'exports-loader?Util!bootstrap/js/dist/util'
     }),
     new ManifestPlugin({
-      fileName: util.resolve('data/assets.json'),
-      publicPath: 'dist/'
+      fileName: util.resolve('data/assets.json')
     })
   ]
 };

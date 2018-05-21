@@ -11,7 +11,7 @@ module.exports = merge(common, {
 
   // Should not use [hash] or [chunkhash] for development
   output: {
-    filename: 'js/[name].js'
+    filename: '[name].js'
   },
 
   module: {

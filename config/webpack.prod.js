@@ -11,7 +11,7 @@ module.exports = merge(common, {
   mode: 'production',
 
   output: {
-    filename: 'js/[chunkhash].js',
+    filename: '[chunkhash].js',
   },
 
   module: {
@@ -34,7 +34,7 @@ module.exports = merge(common, {
       paths: util.getFilePaths(['layouts', 'src/js'])
     }),
     new MiniCssExtPlugin({
-      filename: 'css/[contenthash].css'
+      filename: '[contenthash].css'
     }),
   ],
 });

@@ -1,12 +1,12 @@
 "use strict";
 
-import 'bootstrap/js/dist/alert';
-import fontawesome from '@fortawesome/fontawesome';
-import faExternalLinkAlt from '@fortawesome/fontawesome-pro-solid/faExternalLinkAlt';
+var style = require('../scss/style.scss');
+var readyContactForm = require('./contact-form');
 
-import '../scss/style.scss';
-import readyContactForm from './contact-form';
+var alert = require('bootstrap/js/dist/alert');
+var fontawesome = require('@fortawesome/fontawesome');
+var faExtLink = require('@fortawesome/fontawesome-pro-solid/faExternalLinkAlt');
 
 
 readyContactForm('contactForm');
-fontawesome.library.add(faExternalLinkAlt);
+fontawesome.library.add(faExtLink);

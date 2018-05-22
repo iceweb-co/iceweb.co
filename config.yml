@@ -2,6 +2,8 @@ baseURL: https://www.iceweb.co/
 disableKinds: [taxonomy, taxonomyTerm, RSS]
 publishDir: dist
 resourceDir: cache
+imaging:
+  resampleFilter: CatmullRom
 
 disableLanguages: []
 defaultContentLanguage: en

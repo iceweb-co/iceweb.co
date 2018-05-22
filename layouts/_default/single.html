@@ -109,8 +109,8 @@
           <a class="list-group-item list-group-item-action"
             href="{{ .anchor }}">
             {{- with .icon -}}
-            {{ $iconSmall := ($.Resources.GetMatch .).Resize "x32" }}
-            {{ $iconLarge := ($.Resources.GetMatch .).Resize "x64" }}
+            {{ $iconSmall := ($.Resources.GetMatch .).Resize "x32 CatmullRom" }}
+            {{ $iconLarge := ($.Resources.GetMatch .).Resize "x64 CatmullRom" }}
               <img class="pricingTable__icon"
                 src='{{ $iconSmall.RelPermalink }}'
                 srcset='{{ $iconSmall.RelPermalink }} 1x,
@@ -159,8 +159,8 @@
           <a class="list-group-item list-group-item-action"
             href="{{ .anchor }}">
             {{- with .icon -}}
-            {{ $iconSmall := ($.Resources.GetMatch .).Resize "x32" }}
-            {{ $iconLarge := ($.Resources.GetMatch .).Resize "x64" }}
+            {{ $iconSmall := ($.Resources.GetMatch .).Resize "x32 CatmullRom" }}
+            {{ $iconLarge := ($.Resources.GetMatch .).Resize "x64 CatmullRom" }}
               <img class="pricingTable__icon"
                 src='{{ $iconSmall.RelPermalink }}'
                 srcset='{{ $iconSmall.RelPermalink }} 1x,
@@ -202,8 +202,8 @@
           <a class="list-group-item list-group-item-action"
             href="{{ .anchor }}">
             {{- with .icon -}}
-            {{ $iconSmall := ($.Resources.GetMatch .).Resize "x32" }}
-            {{ $iconLarge := ($.Resources.GetMatch .).Resize "x64" }}
+            {{ $iconSmall := ($.Resources.GetMatch .).Resize "x32 CatmullRom" }}
+            {{ $iconLarge := ($.Resources.GetMatch .).Resize "x64 CatmullRom" }}
               <img class="pricingTable__icon"
                 src='{{ $iconSmall.RelPermalink }}'
                 srcset='{{ $iconSmall.RelPermalink }} 1x,

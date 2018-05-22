@@ -113,6 +113,10 @@ p {
 
 
 // PRICING TABLES //////////////////////////////////////////////////////////////
+.pricingTable {
+  border-radius: 0;
+}
+
 .pricingTable__icon {
   float: left;
   width: 32px;
@@ -120,17 +124,20 @@ p {
   margin-right: 1rem;
 }
 
+.pricingTable__listText {
+  overflow: hidden;
+}
+
+
 // CONTACT FORM ////////////////////////////////////////////////////////////////
 .contactForm {
-  @include media-breakpoint-up(md) {
-    margin-top: 2rem;
-  }
+  @include media-breakpoint-up(md) {}
 }
 
 .contactForm__container {
   border-radius: 1rem;
   @include media-breakpoint-up(md) {
-    margin-top: -11rem;
+    margin-top: -18rem;
     border: .25rem solid map-get($theme-colors, accent-dark);
   }
 }

@@ -81,9 +81,12 @@
       A <a href="https://gsuite.google.com/compare-editions/">detailed comparison</a> between G Suite editions is available at the <a href="https://gsuite.google.com/compare-editions/">official G Suite website</a>. If you have any questions about the different editions, contact us right away.
     </p>
 
-    <div class="row mb-3">
-      <div class="col-md-6 col-lg">
-        <div class="card mb-4 box-shadow">
+    <p class="text-info">Shown prices are not inclusive of VAT</p>
+
+    <!-- Basic ---------------------------------------------------------------->
+    <div class="row mb-3 no-gutters">
+      <div class="col-md-4 col-lg">
+        <div class="pricingTable card mb-4 box-shadow">
           <div class="card-header">
             <h3 class="my-0 font-weight-normal">
               {{- .Site.Data.gsuite.basic.name -}}
@@ -122,10 +125,18 @@
             {{ .Site.Data.gsuite.basic.moreDetails | markdownify }}
           </div>
         </div>
+
+        <p class="px-4 text-muted">* It is possible to
+          <a href="https://support.google.com/a/answer/177064?hl=en">
+            increase the storage of individual users</a>
+          as needed. for more details, visit the
+          <a href="https://support.google.com/a/answer/177064?hl=en">
+            Google Drive storage page.</a></p>
       </div>
 
-      <div class="col-md-6 col-lg">
-        <div class="card mb-4 box-shadow">
+      <!-- Business ----------------------------------------------------------->
+      <div class="col-md-4 col-lg">
+        <div class="pricingTable card mb-4 box-shadow">
           <div class="card-header">
             <h3 class="my-0 font-weight-normal">
               {{- .Site.Data.gsuite.business.name -}}
@@ -166,11 +177,50 @@
         </div>
       </div>
 
-      <div class="w-100"></div>
-      <div class="col-md-6 col-xl-5">
-        <p class="text-info">Shown prices are not inclusive of VAT</p>
-        <p>* It is possible to <a href="#">increase the storage of individual users</a> as needed. for more details, visit the <a href="#">Google Drive storage page</a>. Need a cloud-based computer backup solution instead?</p>
+      <!-- Enterprise --------------------------------------------------------->
+      <div class="col-md-4 col-lg">
+        <div class="pricingTable card mb-4 box-shadow">
+          <div class="card-header">
+            <h3 class="my-0 font-weight-normal">
+              {{- .Site.Data.gsuite.enterprise.name -}}
+            </h3>
+          </div>
+
+          <div class="card-body">
+            <p class="mt-3 mb-4">
+              {{- .Site.Data.gsuite.enterprise.description | markdownify -}}
+            </p>
+            <div class="h1 card-title pricing-card-title">
+              {{- .Site.Data.gsuite.enterprise.price }} SAR<br/>
+              <small class="text-muted">SAR / user / year</small>
+            </div>
+            <p>Paid yearly</p>
+          </div>
+
+          <div class="list-group list-group-flush">
+          {{ range .Site.Data.gsuite.enterprise.features }}
+          <a class="list-group-item list-group-item-action"
+            href="{{ .anchor }}">
+            {{- with .icon -}}
+            {{ $iconSmall := ($.Resources.GetMatch .).Resize "x32" }}
+            {{ $iconLarge := ($.Resources.GetMatch .).Resize "x64" }}
+              <img class="pricingTable__icon"
+                src='{{ $iconSmall.RelPermalink }}'
+                srcset='{{ $iconSmall.RelPermalink }} 1x,
+                        {{ $iconLarge.RelPermalink }} 2x' />
+            {{ end }}
+            <div class="pricingTable__listText">{{- .description -}}</div>
+          </a>
+          {{ end }}
+          </div>
+
+          <div class="card-footer">
+            {{ .Site.Data.gsuite.enterprise.moreDetails | markdownify }}
+          </div>
+        </div>
       </div>
+
+      <div class="w-100"></div>
     </div>
   </div>
 </section>
@@ -178,7 +228,7 @@
 <section class="py-5 bg-accent-dark contactForm">
   <div class="container">
     <div class="row justify-content-between align-items-center">
-      <div class="col-md col-xl-5 text-light">
+      <div class="col-md col-xl-5 text-light align-self-start order-md-12">
         <h2 class="h1 font-weight-bold">Contact Us</h2>
         <p class="lead">
           Through our email, <a href="mailto:gsuite@iceweb.co">gsuite@iceweb.co</a> or, by using our contact form.

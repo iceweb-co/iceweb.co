@@ -85,70 +85,41 @@
       <div class="col-md-6 col-lg">
         <div class="card mb-4 box-shadow">
           <div class="card-header">
-            <h3 class="my-0 font-weight-normal">G Suite Basic</h3>
+            <h3 class="my-0 font-weight-normal">
+              {{- .Site.Data.gsuite.basic.name -}}
+            </h3>
           </div>
 
           <div class="card-body">
             <p class="mt-3 mb-4">
-              Professional office suite<br/>
-              <strong>30GB*</strong> of cloud storage per user
+              {{- .Site.Data.gsuite.basic.description | markdownify -}}
             </p>
             <div class="h1 card-title pricing-card-title">
-              188 SAR<br/>
+              {{- .Site.Data.gsuite.basic.price }} SAR<br/>
               <small class="text-muted">SAR / user / year</small>
             </div>
             <p>Paid yearly</p>
           </div>
 
           <div class="list-group list-group-flush">
-            <a class="list-group-item list-group-item-action"
-              href="https://gsuite.google.com/products/gmail/">
+          {{ range .Site.Data.gsuite.basic.features }}
+          <a class="list-group-item list-group-item-action"
+            href="{{ .anchor }}">
+            {{- with .icon -}}
+            {{ $iconSmall := ($.Resources.GetMatch .).Resize "x32" }}
+            {{ $iconLarge := ($.Resources.GetMatch .).Resize "x64" }}
               <img class="pricingTable__icon"
-                src='{{ "images/gmail_48dp.png" | relURL }}' />
-              Business Gmail
-            </a>
-            <a class="list-group-item list-group-item-action"
-              href="https://gsuite.google.com/products/meet/">
-              <img class="pricingTable__icon"
-                src='{{ "images/meet_48dp.png" | relURL }}' />
-              Video & audio conferencing
-            </a>
-            <a class="list-group-item list-group-item-action"
-              href="https://gsuite.google.com/products/chat/">
-              <img class="pricingTable__icon"
-                src='{{ "images/chat_48dp.png" | relURL }}' />
-              Team chat
-            </a>
-            <a class="list-group-item list-group-item-action"
-              href="https://gsuite.google.com/products/calendar/">
-              <img class="pricingTable__icon"
-                src='{{ "images/calendar_48dp.png" | relURL }}' />
-              Google Calendar
-            </a>
-            <a class="list-group-item list-group-item-action"
-              href="https://gsuite.google.com/products/docs/">
-              <img class="pricingTable__icon"
-                src='{{ "images/docs_48dp.png" | relURL }}' />
-              Docs, Sheets and Slides
-            </a>
-            <a class="list-group-item list-group-item-action"
-              href="https://gsuite.google.com/products/drive/">
-              <img class="pricingTable__icon"
-                src='{{ "images/drive_48dp.png" | relURL }}' />
-              30GB cloud storage
-            </a>
-            <a class="list-group-item list-group-item-action"
-              href="https://gsuite.google.com/products/admin/">
-              <img class="pricingTable__icon"
-                src='{{ "images/admin_48dp.png" | relURL }}' />
-              Admin & security control
-            </a>
-            <a class="list-group-item list-group-item-action"
-              href="https://gsuite.google.com/support/">
-              <img class="pricingTable__icon"
-                src='{{ "images/support_48dp.png" | relURL }}' />
-              24/7 support by email, phone and chat
-            </a>
+                src='{{ $iconSmall.RelPermalink }}'
+                srcset='{{ $iconSmall.RelPermalink }} 1x,
+                        {{ $iconLarge.RelPermalink }} 2x' />
+            {{ end }}
+            <div class="pricingTable__listText">{{- .description -}}</div>
+          </a>
+          {{ end }}
+          </div>
+
+          <div class="card-footer">
+            {{ .Site.Data.gsuite.basic.moreDetails | markdownify }}
           </div>
         </div>
       </div>
@@ -156,86 +127,41 @@
       <div class="col-md-6 col-lg">
         <div class="card mb-4 box-shadow">
           <div class="card-header">
-            <h3 class="my-0 font-weight-normal">G Suite Business</h3>
+            <h3 class="my-0 font-weight-normal">
+              {{- .Site.Data.gsuite.business.name -}}
+            </h3>
           </div>
 
           <div class="card-body">
             <p class="mt-3 mb-4">
-              Enhanced office suite<br/>
-              <strong>Unlimited storage</strong> and <strong>archiving</strong>
+              {{- .Site.Data.gsuite.business.description | markdownify -}}
             </p>
             <div class="h1 card-title pricing-card-title">
-              451 SAR<br/>
+              {{- .Site.Data.gsuite.business.price }} SAR<br/>
               <small class="text-muted">SAR / user / year</small>
             </div>
             <p>Paid yearly</p>
           </div>
 
           <div class="list-group list-group-flush">
-            <a class="list-group-item list-group-item-action"
-              href="https://gsuite.google.com/products/gmail/">
+          {{ range .Site.Data.gsuite.business.features }}
+          <a class="list-group-item list-group-item-action"
+            href="{{ .anchor }}">
+            {{- with .icon -}}
+            {{ $iconSmall := ($.Resources.GetMatch .).Resize "x32" }}
+            {{ $iconLarge := ($.Resources.GetMatch .).Resize "x64" }}
               <img class="pricingTable__icon"
-                src='{{ "images/gmail_48dp.png" | relURL }}' />
-              Business Gmail
-            </a>
-            <a class="list-group-item list-group-item-action"
-              href="https://gsuite.google.com/products/meet/">
-              <img class="pricingTable__icon"
-                src='{{ "images/meet_48dp.png" | relURL }}' />
-              Video & audio conferencing
-            </a>
-            <a class="list-group-item list-group-item-action"
-              href="https://gsuite.google.com/products/chat/">
-              <img class="pricingTable__icon"
-                src='{{ "images/chat_48dp.png" | relURL }}' />
-              Team chat
-            </a>
-            <a class="list-group-item list-group-item-action"
-              href="https://gsuite.google.com/products/calendar/">
-              <img class="pricingTable__icon"
-                src='{{ "images/calendar_48dp.png" | relURL }}' />
-              Google Calendar
-            </a>
-            <a class="list-group-item list-group-item-action"
-              href="https://gsuite.google.com/products/docs/">
-              <img class="pricingTable__icon"
-                src='{{ "images/docs_48dp.png" | relURL }}' />
-              Docs, Sheets and Slides
-            </a>
-            <a class="list-group-item list-group-item-action"
-              href="https://gsuite.google.com/products/drive/">
-              <img class="pricingTable__icon"
-                src='{{ "images/drive_48dp.png" | relURL }}' />
-              Unlimited cloud storage
-            </a>
-            <a class="list-group-item list-group-item-action"
-              href="https://gsuite.google.com/products/admin/">
-              <img class="pricingTable__icon"
-                src='{{ "images/admin_48dp.png" | relURL }}' />
-              Admin & security control
-            </a>
-            <a class="list-group-item list-group-item-action"
-              href="https://gsuite.google.com/support/">
-              <img class="pricingTable__icon"
-                src='{{ "images/support_48dp.png" | relURL }}' />
-              24/7 support by email, phone and chat
-            </a>
-            <a class="list-group-item list-group-item-action"
-              href="https://gsuite.google.com/products/cloud-search/">
-              <img class="pricingTable__icon"
-                src='{{ "images/search_48dp.png" | relURL }}' />
-              Search across all G Suite
-            </a>
-            <a class="list-group-item list-group-item-action"
-              href="https://gsuite.google.com/products/vault/">
-              <img class="pricingTable__icon"
-                src='{{ "images/vault_48dp.png" | relURL }}' />
-              Email & Drive archiving
-            </a>
+                src='{{ $iconSmall.RelPermalink }}'
+                srcset='{{ $iconSmall.RelPermalink }} 1x,
+                        {{ $iconLarge.RelPermalink }} 2x' />
+            {{ end }}
+            <div class="pricingTable__listText">{{- .description -}}</div>
+          </a>
+          {{ end }}
           </div>
 
-          <div class="card-body">
-            And much more. For the complete list of features please refer to the <a href="https://support.google.com/a/answer/6034782?hl=en&ref_topic=6043588">G Suite Business support page.</a>
+          <div class="card-footer">
+            {{ .Site.Data.gsuite.business.moreDetails | markdownify }}
           </div>
         </div>
       </div>

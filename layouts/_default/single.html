@@ -35,35 +35,14 @@
   <div class="container">
     <h2 class="text-muted">We migrated many companies to G Suite</h2>
     <ul class="list-unstyled mb-0 customerList">
-      <li class="customerList__item customerList__item--nesk">
-        <img src='{{ "images/customer-logo-nesk.png" | relURL }}'
-          alt="NESK Group" />
+    {{ range .Params.customers }}
+      <li class="customerList__item customerList__item--{{ .id }}">
+      {{ $logoGlob := print "**logo-" .id "*" }}
+      {{ $logo := $.Resources.GetMatch $logoGlob }}
+        <img src='{{ $logo.RelPermalink }}'
+          alt="{{ .name }}" />
       </li>
-
-      <li class="customerList__item customerList__item--jawahir">
-        <img src='{{ "images/customer-logo-jawahir.png" | relURL }}'
-          alt="Saudi Jawahir" />
-      </li>
-
-      <li class="customerList__item customerList__item--jaddarah">
-        <img src='{{ "images/customer-logo-jaddarah.png" | relURL }}'
-          alt="Jaddarah" />
-      </li>
-
-      <li class="customerList__item customerList__item--wadialnahil">
-        <img src='{{ "images/customer-logo-wadialnahil.png" | relURL }}'
-          alt="Wadi AlNahil" />
-      </li>
-
-      <li class="customerList__item customerList__item--safwafood">
-        <img src='{{ "images/customer-logo-safwafood.png" | relURL }}'
-          alt="SafwaFood (Dairy Queen)" />
-      </li>
-
-      <li class="customerList__item customerList__item--steelcase">
-        <img src='{{ "images/customer-logo-steelcase.png" | relURL }}'
-          alt="Steelcase Jaraisy Factory" />
-      </li>
+    {{ end }}
     </ul>
   </di682143v>
 </section>

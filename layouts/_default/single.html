@@ -108,13 +108,11 @@
           {{ range .Site.Data.gsuite.basic.features }}
           <a class="list-group-item list-group-item-action"
             href="{{ .anchor }}">
-            {{- with .icon -}}
-            {{ $iconSmall := ($.Resources.GetMatch .).Resize "x32" }}
-            {{ $iconLarge := ($.Resources.GetMatch .).Resize "x64" }}
-              <img class="pricingTable__icon"
-                src='{{ $iconSmall.RelPermalink }}'
-                srcset='{{ $iconSmall.RelPermalink }} 1x,
-                        {{ $iconLarge.RelPermalink }} 2x' />
+            {{- with $.Resources.GetMatch (printf "%s" .icon) -}}
+            <img class="pricingTable__icon"
+              src='{{ (.Resize "x32").RelPermalink }}'
+              srcset='{{ (.Resize "x32").RelPermalink }} 1x,
+                      {{ (.Resize "x32").RelPermalink }} 2x' />
             {{ end }}
             <div class="pricingTable__listText">{{- .description -}}</div>
           </a>
@@ -156,18 +154,16 @@
 
           <div class="list-group list-group-flush">
           {{ range .Site.Data.gsuite.business.features }}
-          <a class="list-group-item list-group-item-action"
-            href="{{ .anchor }}">
-            {{- with .icon -}}
-            {{ $iconSmall := ($.Resources.GetMatch .).Resize "x32" }}
-            {{ $iconLarge := ($.Resources.GetMatch .).Resize "x64" }}
+            <a class="list-group-item list-group-item-action"
+              href="{{ .anchor }}">
+              {{- with $.Resources.GetMatch (printf "%s" .icon) -}}
               <img class="pricingTable__icon"
-                src='{{ $iconSmall.RelPermalink }}'
-                srcset='{{ $iconSmall.RelPermalink }} 1x,
-                        {{ $iconLarge.RelPermalink }} 2x' />
-            {{ end }}
-            <div class="pricingTable__listText">{{- .description -}}</div>
-          </a>
+                src='{{ (.Resize "x32").RelPermalink }}'
+                srcset='{{ (.Resize "x32").RelPermalink }} 1x,
+                        {{ (.Resize "x32").RelPermalink }} 2x' />
+              {{ end }}
+              <div class="pricingTable__listText">{{- .description -}}</div>
+            </a>
           {{ end }}
           </div>
 
@@ -201,13 +197,11 @@
           {{ range .Site.Data.gsuite.enterprise.features }}
           <a class="list-group-item list-group-item-action"
             href="{{ .anchor }}">
-            {{- with .icon -}}
-            {{ $iconSmall := ($.Resources.GetMatch .).Resize "x32" }}
-            {{ $iconLarge := ($.Resources.GetMatch .).Resize "x64" }}
-              <img class="pricingTable__icon"
-                src='{{ $iconSmall.RelPermalink }}'
-                srcset='{{ $iconSmall.RelPermalink }} 1x,
-                        {{ $iconLarge.RelPermalink }} 2x' />
+            {{- with $.Resources.GetMatch (printf "%s" .icon) -}}
+            <img class="pricingTable__icon"
+              src='{{ (.Resize "x32").RelPermalink }}'
+              srcset='{{ (.Resize "x32").RelPermalink }} 1x,
+                      {{ (.Resize "x32").RelPermalink }} 2x' />
             {{ end }}
             <div class="pricingTable__listText">{{- .description -}}</div>
           </a>

@@ -22,7 +22,8 @@ module.exports = {
       Util: 'exports-loader?Util!bootstrap/js/dist/util'
     }),
     new ManifestPlugin({
-      fileName: util.resolve('data/assets.json')
+      fileName: util.resolve('data/assets.json'),
+      publicPath: 'assets/'
     })
   ]
 };

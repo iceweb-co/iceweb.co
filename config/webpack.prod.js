@@ -30,7 +30,7 @@ module.exports = merge(common, {
 
   plugins: [
     new PurgecssPlugin({
-      whitelistPatterns: [],
+      whitelistPatterns: [/customerList__item.*/],
       paths: util.getFilePaths(['layouts', 'src/js'])
     }),
     new MiniCssExtPlugin({

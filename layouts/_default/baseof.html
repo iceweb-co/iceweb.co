@@ -9,7 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     {{ with (index .Site.Data.assets "gsuite.css") }}
-      <link href="{{ . | relURL }}" rel="stylesheet" />
+    <style type="text/css">
+      {{ readFile (printf "dist/%s" . ) | safeCSS }}
+    </style>
     {{ end }}
   </head>
 

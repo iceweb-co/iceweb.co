@@ -4,8 +4,10 @@
   "description": "The future",
   "private": true,
   "scripts": {
-    "watch": "webpack --watch --config config/webpack.dev.js",
-    "build": "webpack --config config/webpack.prod.js"
+    "webpack-watch": "webpack --watch --config config/webpack.dev.js",
+    "webpack": "webpack --config config/webpack.prod.js",
+    "hugo": "hugo",
+    "hugo-server": "hugo serve --renderToDisk"
   },
   "repository": {
     "type": "git",

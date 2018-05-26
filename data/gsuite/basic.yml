@@ -11,32 +11,32 @@ moreDetails: |
 features:
   - description: Business Gmail
     anchor: https://gsuite.google.com/products/gmail/
-    icon: '**/gmail*'
+    icon: 'service-icons/gmail.*'
 
   - description: Video & audio conferencing
     anchor: https://gsuite.google.com/products/meet/
-    icon: '**/meet*'
+    icon: 'service-icons/meet.*'
 
   - description: Team chat
     anchor: https://gsuite.google.com/products/chat/
-    icon: '**/chat*'
+    icon: 'service-icons/chat.*'
 
   - description: Google Calendar
     anchor: https://gsuite.google.com/products/calendar/
-    icon: '**/calendar*'
+    icon: 'service-icons/calendar.*'
 
   - description: Docs, Sheets and Slides
     anchor: https://gsuite.google.com/products/docs/
-    icon: '**/docs*'
+    icon: 'service-icons/docs.*'
 
   - description: 30GB cloud storage
     anchor: https://gsuite.google.com/products/drive/
-    icon: '**/drive*'
+    icon: 'service-icons/drive.*'
 
   - description: Admin & security control
     anchor: https://gsuite.google.com/products/admin/
-    icon: '**/admin*'
+    icon: 'service-icons/admin.*'
 
   - description: 24/7 support by email, phone and chat
     anchor: https://gsuite.google.com/support/
-    icon: '**/support*'
+    icon: 'service-icons/support.*'

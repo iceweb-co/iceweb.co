@@ -36,9 +36,8 @@
     <h2 class="text-muted">We migrated many companies to G Suite</h2>
     <ul class="list-unstyled mb-0 customerList">
     {{ range .Params.customers }}
-      <li class="customerList__item customerList__item--{{ .id }}">
-      {{ $logoGlob := print "**logo-" .id "*" }}
-      {{ $logo := $.Resources.GetMatch $logoGlob }}
+      <li class="customerList__item {{ .classList }}">
+      {{ $logo := $.Resources.GetMatch (printf "customer-logos/%s.*" .id) }}
         <img src='{{ $logo.RelPermalink }}'
           alt="{{ .name }}" />
       </li>

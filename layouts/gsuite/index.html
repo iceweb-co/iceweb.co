@@ -1,5 +1,6 @@
 {{ define "title" }} - {{ .Title }}{{ end }}
 {{ define "main" }}
+{{ printf "%#v" . }}
 <div class="container px-0">
   <nav class="navbar mainNavbar">
     <a class="navbar-brand" href='{{ .URL }}'>

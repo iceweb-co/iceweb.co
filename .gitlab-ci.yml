@@ -20,7 +20,7 @@ webpack:
 
   script:
   - npm install
-  - npm run build
+  - npm run webpack
   artifacts:
     expire_in: 30 minutes
     paths:

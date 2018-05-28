@@ -4,7 +4,7 @@
 # resourcers in sub-folders). That's why both [type, layout] are needed to
 # correctly specify the layout
 # see: https://gohugo.io/content-management/sections/#nested-sections
-aliases: [/ar, /en, /gsuite]
+aliases: [/en, /gsuite]
 type: gsuite
 layout: index
 title: G Suite

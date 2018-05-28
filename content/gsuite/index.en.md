@@ -1,37 +1,48 @@
 ---
 # Without an _index file in this section (gsuite), hugo does not use a section
-# template to render this file and we dont want that anyway. That's why both
-# [type, layout] are needed to correctly specify the layout
+# template to render this file and we dont want that anyway (to alows page
+# resourcers in sub-folders). That's why both [type, layout] are needed to
+# correctly specify the layout
+# see: https://gohugo.io/content-management/sections/#nested-sections
 aliases: [/ar, /en, /gsuite]
 type: gsuite
 layout: index
 title: G Suite
 
-# Customer logos displayed in G Suite homepage
-# The id is used as a filename for the logo file in ./customer-logos
+# Customer logos displayed in the G Suite homepage
 # The classList contains css classes used to size each logo separately
 customers:
-- id: nesk
-  name: NESK Group
+- name: NESK Group
+  logo: 'images/customer-logos/nesk*'
   classList: 'customerList__item--nesk'
 
-- id: jawahir
-  name: Saudi Jawahir
+- name:: Saudi Jawahir
+  logo: 'images/customer-logos/jawahir*'
   classList: 'customerList__item--jawahir'
 
-- id: jaddarah
-  name: Jaddarah
+- name:: Jaddarah
+  logo: 'images/customer-logos/jaddarah*'
   classList: 'customerList__item--jaddarah'
 
-- id: wadialnahil
-  name: Wadi AlNahil
+- name:: Wadi AlNahil
+  logo: 'images/customer-logos/wadialnahil*'
   classList: 'customerList__item--wadialnahil'
 
-- id: safwafood
-  name: SafwaFood
+- name:: SafwaFood
+  logo: 'images/customer-logos/safwafood*'
   classList: 'customerList__item--safwafood'
 
-- id: steelcase
-  name: Steelcase Jeraisy Factory
+- name:: Steelcase Jeraisy Factory
+  logo: 'images/customer-logos/steelcase*'
   classList: 'customerList__item--steelcase'
+
+# Pricing table in the G Suite homepage. 'data' list refers to hugo data files
+# located in 'data/<dataDir>'
+pricing:
+  iconsDir: images/feature-icons
+  dataDir: gsuite
+  data:
+  - basic
+  - business
+  - enterprise
 ---

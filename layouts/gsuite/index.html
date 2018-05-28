@@ -37,7 +37,7 @@
     <ul class="list-unstyled mb-0 customerList">
     {{ range .Params.customers }}
       <li class="customerList__item {{ .classList }}">
-      {{ $logo := $.Resources.GetMatch (printf "customer-logos/%s.*" .id) }}
+      {{ $logo := $.Resources.GetMatch .logo }}
         <img src='{{ $logo.RelPermalink }}'
           alt="{{ .name }}" />
       </li>
@@ -82,80 +82,34 @@
 
     <p class="text-info">Shown prices are not inclusive of VAT</p>
 
-    <!-- Basic ---------------------------------------------------------------->
     <div class="row mb-3 no-gutters">
+    {{ range .Params.pricing.data }}
+      {{ $data := (index $.Site.Data $.Params.pricing.dataDir .) }}
       <div class="col-md-4 col-lg">
         <div class="pricingTable card mb-4 box-shadow">
           <div class="card-header">
             <h3 class="my-0 font-weight-normal">
-              {{- .Site.Data.gsuite.basic.name -}}
+              {{- $data.name -}}
             </h3>
           </div>
 
           <div class="card-body">
             <p class="mt-3 mb-4">
-              {{- .Site.Data.gsuite.basic.description | markdownify -}}
+              {{- $data.description | markdownify -}}
             </p>
             <div class="h1 card-title pricing-card-title">
-              {{- .Site.Data.gsuite.basic.price }} SAR<br/>
+              {{- $data.price }} SAR<br/>
               <small class="text-muted">SAR / user / year</small>
             </div>
             <p>Paid yearly</p>
           </div>
 
           <div class="list-group list-group-flush">
-          {{ range .Site.Data.gsuite.basic.features }}
-          <a class="list-group-item list-group-item-action"
-            href="{{ .anchor }}">
-            {{- with $.Resources.GetMatch (printf "%s" .icon) -}}
-            <img class="pricingTable__icon"
-              src='{{ (.Resize "x32").RelPermalink }}'
-              srcset='{{ (.Resize "x32").RelPermalink }} 1x,
-                      {{ (.Resize "x32").RelPermalink }} 2x' />
-            {{ end }}
-            <div class="pricingTable__listText">{{- .description -}}</div>
-          </a>
-          {{ end }}
-          </div>
-
-          <div class="card-footer">
-            {{ .Site.Data.gsuite.basic.moreDetails | markdownify }}
-          </div>
-        </div>
-
-        <p class="px-4 text-muted">* It is possible to
-          <a href="https://support.google.com/a/answer/177064?hl=en">
-            increase the storage of individual users</a>
-          as needed. for more details, visit the
-          <a href="https://support.google.com/a/answer/177064?hl=en">
-            Google Drive storage page.</a></p>
-      </div>
-
-      <!-- Business ----------------------------------------------------------->
-      <div class="col-md-4 col-lg">
-        <div class="pricingTable card mb-4 box-shadow">
-          <div class="card-header">
-            <h3 class="my-0 font-weight-normal">
-              {{- .Site.Data.gsuite.business.name -}}
-            </h3>
-          </div>
-
-          <div class="card-body">
-            <p class="mt-3 mb-4">
-              {{- .Site.Data.gsuite.business.description | markdownify -}}
-            </p>
-            <div class="h1 card-title pricing-card-title">
-              {{- .Site.Data.gsuite.business.price }} SAR<br/>
-              <small class="text-muted">SAR / user / year</small>
-            </div>
-            <p>Paid yearly</p>
-          </div>
-
-          <div class="list-group list-group-flush">
-          {{ range .Site.Data.gsuite.business.features }}
+          {{ range $data.features }}
+            {{ $iconPath := (printf "%s/%s" $.Params.pricing.iconsDir .icon) }}
             <a class="list-group-item list-group-item-action"
               href="{{ .anchor }}">
-              {{- with $.Resources.GetMatch (printf "%s" .icon) -}}
+              {{- with $.Resources.GetMatch $iconPath -}}
               <img class="pricingTable__icon"
                 src='{{ (.Resize "x32").RelPermalink }}'
                 srcset='{{ (.Resize "x32").RelPermalink }} 1x,
@@ -167,54 +121,20 @@
           </div>
 
           <div class="card-footer">
-            {{ .Site.Data.gsuite.business.moreDetails | markdownify }}
+            {{ $data.moreDetails | markdownify }}
           </div>
         </div>
+
+        {{ with $data.footnote }}
+        <p class="px-4 text-muted">
+          {{ . | markdownify }}
+        </p>
+        {{ end }}
       </div>
-
-      <!-- Enterprise --------------------------------------------------------->
-      <div class="col-md-4 col-lg">
-        <div class="pricingTable card mb-4 box-shadow">
-          <div class="card-header">
-            <h3 class="my-0 font-weight-normal">
-              {{- .Site.Data.gsuite.enterprise.name -}}
-            </h3>
-          </div>
-
-          <div class="card-body">
-            <p class="mt-3 mb-4">
-              {{- .Site.Data.gsuite.enterprise.description | markdownify -}}
-            </p>
-            <div class="h1 card-title pricing-card-title">
-              {{- .Site.Data.gsuite.enterprise.price }} SAR<br/>
-              <small class="text-muted">SAR / user / year</small>
-            </div>
-            <p>Paid yearly</p>
-          </div>
-
-          <div class="list-group list-group-flush">
-          {{ range .Site.Data.gsuite.enterprise.features }}
-          <a class="list-group-item list-group-item-action"
-            href="{{ .anchor }}">
-            {{- with $.Resources.GetMatch (printf "%s" .icon) -}}
-            <img class="pricingTable__icon"
-              src='{{ (.Resize "x32").RelPermalink }}'
-              srcset='{{ (.Resize "x32").RelPermalink }} 1x,
-                      {{ (.Resize "x32").RelPermalink }} 2x' />
-            {{ end }}
-            <div class="pricingTable__listText">{{- .description -}}</div>
-          </a>
-          {{ end }}
-          </div>
-
-          <div class="card-footer">
-            {{ .Site.Data.gsuite.enterprise.moreDetails | markdownify }}
-          </div>
-        </div>
-      </div>
-
-      <div class="w-100"></div>
+    {{ end }}
+    <div class="w-100"></div>
     </div>
+
   </div>
 </section>
 

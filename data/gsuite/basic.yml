@@ -7,36 +7,41 @@ description: |
 moreDetails: |
   For the complete list of features please refer to the
   [G Suite Basic support page.](https://support.google.com/a/answer/6047848?hl=en&ref_topic=6043588)
+footnote: |
+  \* It is possible to
+  [increase the storage of individual users](https://support.google.com/a/answer/177064?hl=en)
+  as needed. for more details, visit the
+  [Google Drive storage page.](https://support.google.com/a/answer/177064?hl=en)
 
 features:
   - description: Business Gmail
     anchor: https://gsuite.google.com/products/gmail/
-    icon: 'service-icons/gmail.*'
+    icon: 'gmail.*'
 
   - description: Video & audio conferencing
     anchor: https://gsuite.google.com/products/meet/
-    icon: 'service-icons/meet.*'
+    icon: 'meet.*'
 
   - description: Team chat
     anchor: https://gsuite.google.com/products/chat/
-    icon: 'service-icons/chat.*'
+    icon: 'chat.*'
 
   - description: Google Calendar
     anchor: https://gsuite.google.com/products/calendar/
-    icon: 'service-icons/calendar.*'
+    icon: 'calendar.*'
 
   - description: Docs, Sheets and Slides
     anchor: https://gsuite.google.com/products/docs/
-    icon: 'service-icons/docs.*'
+    icon: 'docs.*'
 
   - description: 30GB cloud storage
     anchor: https://gsuite.google.com/products/drive/
-    icon: 'service-icons/drive.*'
+    icon: 'drive.*'
 
   - description: Admin & security control
     anchor: https://gsuite.google.com/products/admin/
-    icon: 'service-icons/admin.*'
+    icon: 'admin.*'
 
   - description: 24/7 support by email, phone and chat
     anchor: https://gsuite.google.com/support/
-    icon: 'service-icons/support.*'
+    icon: 'support.*'

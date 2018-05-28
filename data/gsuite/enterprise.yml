@@ -11,47 +11,47 @@ moreDetails: |
 features:
   - description: Business Gmail
     anchor: https://gsuite.google.com/products/gmail/
-    icon: 'service-icons/gmail.*'
+    icon: 'gmail.*'
 
   - description: Video & audio conferencing
     anchor: https://gsuite.google.com/products/meet/
-    icon: 'service-icons/meet.*'
+    icon: 'meet.*'
 
   - description: Team chat
     anchor: https://gsuite.google.com/products/chat/
-    icon: 'service-icons/chat.*'
+    icon: 'chat.*'
 
   - description: Google Calendar
     anchor: https://gsuite.google.com/products/calendar/
-    icon: 'service-icons/calendar.*'
+    icon: 'calendar.*'
 
   - description: Docs, Sheets and Slides
     anchor: https://gsuite.google.com/products/docs/
-    icon: 'service-icons/docs.*'
+    icon: 'docs.*'
 
   - description: Unlimited storage
     anchor: https://gsuite.google.com/products/drive/
-    icon: 'service-icons/drive.*'
+    icon: 'drive.*'
 
   - description: Admin & security control
     anchor: https://gsuite.google.com/products/admin/
-    icon: 'service-icons/admin.*'
+    icon: 'admin.*'
 
   - description: 24/7 support by email, phone and chat
     anchor: https://gsuite.google.com/support/
-    icon: 'service-icons/support.*'
+    icon: 'support.*'
 
   - description: Search across all G Suite
     anchor: https://gsuite.google.com/products/cloud-search/
-    icon: 'service-icons/search.*'
+    icon: 'search.*'
 
   - description: Email & Drive archiving
     anchor: https://gsuite.google.com/products/vault/
-    icon: 'service-icons/vault.*'
+    icon: 'vault.*'
 
   - description: Shared spaces for teams
     anchor: https://support.google.com/a/answer/7212025?hl=en&ref_topic=7337266
-    icon: 'service-icons/team-drives.*'
+    icon: 'team-drives.*'
 
   - description: Advanced reports
     anchor: https://support.google.com/a/answer/4579696

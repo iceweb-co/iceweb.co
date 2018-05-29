@@ -8,13 +8,68 @@
   "RoutingRules": [
     {
       "Condition": {
+        "KeyPrefixEquals": "index.html"
+      },
+      "Redirect": {
+        "HttpRedirectCode": "302",
+        "Protocol": "https",
+        "HostName": "www.iceweb.co",
+        "ReplaceKeyWith": "en/gsuite/"
+      }
+    },
+    {
+      "Condition": {
+        "KeyPrefixEquals": "en"
+      },
+      "Redirect": {
+        "HttpRedirectCode": "302",
+        "Protocol": "https",
+        "HostName": "www.iceweb.co",
+        "ReplaceKeyWith": "en/gsuite/"
+      }
+    },
+    {
+      "Condition": {
+        "KeyPrefixEquals": "gsuite"
+      },
+      "Redirect": {
+        "HttpRedirectCode": "302",
+        "Protocol": "https",
+        "HostName": "www.iceweb.co",
+        "ReplaceKeyWith": "en/gsuite/"
+      }
+    },
+    {
+      "Condition": {
         "KeyPrefixEquals": "google-for-work"
       },
       "Redirect": {
-        "HostName": "www.iceweb.co",
-        "HttpRedirectCode": "302",
+        "HttpRedirectCode": "301",
         "Protocol": "https",
-        "ReplaceKeyWith": "en/gsuite"
+        "HostName": "www.iceweb.co",
+        "ReplaceKeyWith": "en/gsuite/"
+      }
+    },
+    {
+      "Condition": {
+        "KeyPrefixEquals": "cloud"
+      },
+      "Redirect": {
+        "HttpRedirectCode": "301",
+        "Protocol": "https",
+        "HostName": "www.iceweb.co",
+        "ReplaceKeyWith": "en/gsuite/"
+      }
+    },
+    {
+      "Condition": {
+        "KeyPrefixEquals": "contact-us"
+      },
+      "Redirect": {
+        "HttpRedirectCode": "301",
+        "Protocol": "https",
+        "HostName": "www.iceweb.co",
+        "ReplaceKeyWith": "en/gsuite/"
       }
     },
     {
@@ -22,10 +77,10 @@
         "KeyPrefixEquals": "privacy-policy"
       },
       "Redirect": {
-        "HostName": "www.iceweb.co",
-        "HttpRedirectCode": "302",
+        "HttpRedirectCode": "301",
         "Protocol": "https",
-        "ReplaceKeyWith": "en/legal/musafer-privacy-policy"
+        "HostName": "www.iceweb.co",
+        "ReplaceKeyWith": "en/legal/musafer-privacy-policy/"
       }
     }
   ]

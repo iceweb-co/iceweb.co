@@ -90,8 +90,8 @@ deploy_to_s3:
   # static assets like jpg, png, etc...
   - >
     aws s3 mv $PUBLIC_DIR/ s3://$S3_BUCKET --recursive
-    --exclude "*"
-    --include "*.jpg" --include "*.png" --include "*.svg" --include "*.ico"
+    --exclude "*" --include "*.jpg" --include "*.png" --include "*.svg"
+    --include "*.ico" --include "*.svg"
     --cache-control="max-age=604800"
   # everything else
   - >

@@ -1,0 +1,26 @@
+{{ define "title" }} - {{ .Title }}{{ end }}
+
+{{ define "head" }}
+<style>
+  .container { max-width: 37.5em }
+  ul, ol { padding-left: 1rem; list-style: none }
+  p { max-width: 37.5em }
+</style>
+{{ end }}
+
+{{ define "main" }}
+<div class="container">
+  <nav class="navbar mainNavbar">
+    <a class="navbar-brand" href='{{ "/" | relLangURL }}'>
+      <img alt="ICEWEB"
+        src='{{ "logo-x48.png" | relURL }}'
+        srcset='{{ "logo-x48.png" | relURL }} 1x,
+                {{ "logo-x96.png" | relURL }} 2x' />
+    </a>
+  </nav>
+
+  <main>
+    {{- .Content -}}
+  </main>
+</div>
+{{ end }}

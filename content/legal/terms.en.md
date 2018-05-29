@@ -8,7 +8,7 @@ title: Terms and Conditions
 
 The word **"ICEWEB"** herein refers to International Competitiveness Est. for Technology which is a Riyadh company, and the **"Customer"** is the entity agreeing to these terms.
 
-The terms that follow are effective from the date it's signed by You (for offline contracts) or the time that ICEWEB provides the Customer with access to the Service.
+The terms that follow are effective from the date it's accepted (or signed for offline contracts) by the Customer or the time that ICEWEB provides the Customer with access to the Service.
 
 If you are accepting on behalf of your employer or another entity, you represent and warrant that: (i) you have full legal authority to bind your employer or the applicable entity to these terms and conditions; (ii) you have read and understand these terms; and (iii) you agree on behalf of the party that you represent to this Agreement. If you don't have the legal authority to bind your employer or the applicable entity please do not sign these terms).
 

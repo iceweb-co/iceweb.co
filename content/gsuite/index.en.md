@@ -1,8 +1,7 @@
 ---
 # Without an _index file in this section (gsuite), hugo does not use a section
 # template to render this file and we dont want that anyway (to alows page
-# resourcers in sub-folders). That's why both [type, layout] are needed to
-# correctly specify the layout
+# resourcers in sub-folders). To spcify the layout, use Both [type, layout]
 # see: https://gohugo.io/content-management/sections/#nested-sections
 # Instead of listing aliases here, put them in /config/s3.www.iceweb.co.json
 aliases: []

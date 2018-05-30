@@ -75,7 +75,7 @@ deploy_to_s3:
   - pip install virtualenv
   - virtualenv venv
   - source venv/bin/activate
-  - pip install --upgrade awscli
+  - pip install --upgrade awscli boto3
   script:
   # HTML files
   - >
@@ -103,3 +103,7 @@ deploy_to_s3:
   - >
     aws s3api put-bucket-website --bucket $S3_BUCKET_NAKED
     --website-configuration file://config/s3.iceweb.co.json
+  # Update s3 redirect using my python script
+  - >
+    python scripts/putredir.py --bucket $S3_BUCKET
+    --redirects-file config/_redirects

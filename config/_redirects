@@ -2,6 +2,9 @@
 index.html  /en/gsuite/
 en          /en/gsuite/
 
+# Should remove this in a couple of months
+gsuite  /en/gsuite/
+
 # From legacy website
 google-for-work   /en/gsuite/
 cloud             /en/gsuite/

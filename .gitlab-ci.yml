@@ -105,5 +105,4 @@ deploy_to_s3:
     --website-configuration file://config/s3.iceweb.co.json
   # Update s3 redirect using my python script
   - >
-    python scripts/putredir.py --bucket $S3_BUCKET
-    --redirects-file config/_redirects
+    python scripts/putredir.py --bucket $S3_BUCKET config/_redirects

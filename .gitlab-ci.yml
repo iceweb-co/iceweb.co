@@ -75,7 +75,7 @@ deploy_to_s3:
   - pip install virtualenv
   - virtualenv venv
   - source venv/bin/activate
-  - pip install --upgrade awscli boto3
+  - pip install --upgrade --requirement requirements.txt
   script:
   # HTML files
   - >

@@ -48,11 +48,7 @@ Be default, ICEWEB's support agents have access to the Customer's G Suite admin 
 
 The Customer can disable ICEWEB's access during the first time the Customer signs in to the admin console. When the Customer initially signs in to their new account and agree to the Google G Suite Agreement, the Customer will have the option to enable or disable reseller (ICEWEB's) access. After the first time the Customer signs in, the Customer can enable and disable ICEWEB's access at any time from within the Admin console.
 
-- (a) the Customer must keep ICEWEB's access to the Customer's G Suite admin console in order for ICEWEB to directly provide technical support to the Customer for the G Suite product. If the Customer disables ICEWEB's access to the Customer's admin console, ICEWEB will not provide support to the Customer for the G Suite product and the Customer must seek support through Google directly as per Google TOS.
-
-- (b) ICEWEB will use reasonable endeavors to resolve, without escalation to Google, support issues about the G Suite product. If ICEWEB cannot resolve such support issues, ICEWEB may escalate such support request to Google on the Customer's behalf.
-
-- \(c) Under no circumstances will ICEWEB have any technical support obligations relating to the Customer's own services or products, or customizations to the G Suite Product.
+- (a) ICEWEB will use reasonable endeavors to resolve, without escalation to Google, support issues about the G Suite product. If ICEWEB cannot resolve such support issues, ICEWEB will escalate such support request to Google on the Customer's behalf.
 
 ## 4. Privacy Compliance
 
@@ -94,7 +90,7 @@ ICEWEB will provide any applicable Google SLA remedies directly to the Customer 
 
 ## 7. Billing and Payment
 
-The Customer must pay any invoices received as part of usage of the service within 30 days of receiving such invoices unless otherwise indicated on the invoice itself.
+The Customer has to pay any invoices received as part of usage of the service within 30 days of receiving such invoices unless otherwise indicated on the invoice itself.
 
 ## 8. Suspension
 

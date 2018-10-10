@@ -16,23 +16,23 @@ customers:
   logo: 'images/customer-logos/nesk*'
   classList: 'customerList__item--nesk'
 
-- name:: Saudi Jawahir
+- name: Saudi Jawahir
   logo: 'images/customer-logos/jawahir*'
   classList: 'customerList__item--jawahir'
 
-- name:: Jaddarah
+- name: Jaddarah
   logo: 'images/customer-logos/jaddarah*'
   classList: 'customerList__item--jaddarah'
 
-- name:: Wadi AlNahil
+- name: Wadi AlNahil
   logo: 'images/customer-logos/wadialnahil*'
   classList: 'customerList__item--wadialnahil'
 
-- name:: SafwaFood
+- name: SafwaFood
   logo: 'images/customer-logos/safwafood*'
   classList: 'customerList__item--safwafood'
 
-- name:: Steelcase Jeraisy Factory
+- name: Steelcase Jeraisy Factory
   logo: 'images/customer-logos/steelcase*'
   classList: 'customerList__item--steelcase'
 

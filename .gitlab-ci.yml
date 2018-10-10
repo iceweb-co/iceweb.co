@@ -49,7 +49,7 @@ hugo:
 
 # cp the Webpack build + static assets (images, etc...) to the s3 bucket
 deploy_to_s3:
-  image: python:latest
+  image: python:3.6.5
   stage: deploy
   environment:
     name: production

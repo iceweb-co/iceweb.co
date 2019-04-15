@@ -7,7 +7,8 @@
     "webpack-watch": "webpack --watch --config config/webpack.dev.js",
     "webpack": "webpack --config config/webpack.prod.js",
     "hugo": "hugo",
-    "hugo-server": "hugo serve --renderToDisk"
+    "hugo-server": "hugo serve --renderToDisk",
+    "gulp": "gulp"
   },
   "repository": {
     "type": "git",
@@ -34,10 +35,15 @@
     "autoprefixer": "^8.5.1",
     "css-loader": "^0.28.11",
     "exports-loader": "^0.7.0",
+    "gulp": "^4.0.0",
+    "gulp-cli": "^2.0.1",
+    "gulp-postcss": "^7.0.1",
+    "gulp-sass": "^4.0.1",
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.9.0",
     "postcss-loader": "^2.1.4",
     "precss": "^3.1.2",
+    "pump": "^3.0.0",
     "purgecss-webpack-plugin": "^1.1.0",
     "sass-loader": "^7.0.1",
     "style-loader": "^0.21.0",

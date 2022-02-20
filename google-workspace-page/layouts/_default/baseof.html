@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}"
+  dir="{{ .Site.Params.languageDirection }}">
+
+  <head>
+    <meta charset="utf-8">
+    <title>{{ .Site.Title }}{{ block "title" . }}{{ end }}</title>
+    <meta name="description" content="{{ .Site.Params.description }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {{ with (index .Site.Data.assets "gsuite.css") }}
+    <style type="text/css">
+      {{ readFile (printf "dist/%s" . ) | safeCSS }}
+    </style>
+    {{ end }}
+    
+    {{ block "head" . }}{{ end }}
+  </head>
+
+  <body>
+    {{ block "main" . }}{{ end }}
+
+    {{ with (index .Site.Data.assets "gsuite.js") }}
+    <script src="{{ . | relURL }}" defer></script>
+    {{ end }}
+  </body>
+
+</html>

@@ -1,6 +1,3 @@
-.venv
 node_modules
-
-dist
-data/assets.json
-cache
+public
+resources/_gen

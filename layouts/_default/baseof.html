@@ -1,3 +1,6 @@
+{{ $scss := resources.Get "scss/style.scss" }}
+{{ $css := $scss | toCSS | resources.PostCSS | minify | fingerprint }}
+
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Lang }}"
   dir="{{ .Site.Params.languageDirection }}">
@@ -8,21 +11,16 @@
     <meta name="description" content="{{ .Site.Params.description }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    {{ with (index .Site.Data.assets "gsuite.css") }}
-    <style type="text/css">
-      {{ readFile (printf "dist/%s" . ) | safeCSS }}
-    </style>
-    {{ end }}
-    
-    {{ block "head" . }}{{ end }}
+    <link rel="stylesheet" href='{{ $css.Permalink }}'>
+
   </head>
 
   <body>
     {{ block "main" . }}{{ end }}
 
-    {{ with (index .Site.Data.assets "gsuite.js") }}
-    <script src="{{ . | relURL }}" defer></script>
-    {{ end }}
+    <script src='{{ ((resources.Get "js/jquery.min.js") | fingerprint).Permalink }}' defer></script>
+    <script src='{{ ((resources.Get "js/bootstrap.bundle.min.js") | fingerprint).Permalink }}' defer></script>
+    <script src='{{ ((resources.Get "js/contact-form/index.js") | fingerprint).Permalink }}' defer></script>
   </body>
 
 </html>

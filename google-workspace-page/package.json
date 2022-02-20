@@ -1,0 +1,53 @@
+{
+  "name": "gsuite.iceweb.co",
+  "version": "1.0.0",
+  "description": "The future",
+  "private": true,
+  "scripts": {
+    "webpack-watch": "webpack --watch --config config/webpack.dev.js",
+    "webpack": "webpack --config config/webpack.prod.js",
+    "hugo": "hugo",
+    "hugo-server": "hugo serve --renderToDisk",
+    "gulp": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/iceweb/gsuite.iceweb.co.git"
+  },
+  "keywords": [
+    "gsuite",
+    "iceweb"
+  ],
+  "author": "Mohamed ElSaadany",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/iceweb/gsuite.iceweb.co/issues"
+  },
+  "homepage": "https://gitlab.com/iceweb/gsuite.iceweb.co#README",
+  "dependencies": {
+    "bootstrap": "^4.1.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^8.5.1",
+    "css-loader": "^0.28.11",
+    "exports-loader": "^0.7.0",
+    "gulp": "^4.0.0",
+    "gulp-cli": "^2.0.1",
+    "gulp-postcss": "^7.0.1",
+    "gulp-sass": "^4.0.1",
+    "mini-css-extract-plugin": "^0.4.0",
+    "node-sass": "^4.9.0",
+    "postcss-loader": "^2.1.4",
+    "precss": "^3.1.2",
+    "pump": "^3.0.0",
+    "purgecss-webpack-plugin": "^1.1.0",
+    "sass-loader": "^7.0.1",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.9.0",
+    "webpack-cli": "^2.1.4",
+    "webpack-manifest-plugin": "^2.0.3",
+    "webpack-merge": "^4.1.2"
+  }
+}

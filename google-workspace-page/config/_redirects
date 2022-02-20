@@ -1,0 +1,15 @@
+# For Hugo
+index.html  /en/gsuite/
+en          /en/gsuite/
+
+# Should remove this in a couple of months
+gsuite  /en/gsuite/
+
+# From legacy website
+google-for-work   /en/gsuite/
+cloud             /en/gsuite/
+contact-us        /en/gsuite/
+privacy-policy    /en/legal/musafer-privacy-policy/
+
+# Temporary redirect to signature changer
+en/gsuite/tools/signatures  https://script.google.com/macros/s/AKfycbwVLtx0UfQCLG2GHv7u2VQs4SKqI4UfLWupr41ektJ77TNjc-4M/exec

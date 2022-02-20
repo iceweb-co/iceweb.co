@@ -1,0 +1,36 @@
+[mission]
+other = "Mission"
+
+[vision]
+other = "Vision"
+
+[services]
+other = "Services"
+
+[directions]
+other = "Directions"
+
+[phone]
+other = "Phone"
+
+[mobile]
+other = "Mobile"
+
+[js_required]
+other = "This form requires JavaScript to work. Please contact us by email."
+
+[input_name]
+other = "Name"
+
+[input_email]
+other = "Email"
+[input_error_email]
+other = "Please enter a valid email address"
+
+[input_message]
+other = "Message"
+[input_error_message]
+other = "Please enter your message"
+
+[input_submit]
+other = "Send"

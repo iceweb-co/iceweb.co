@@ -1,0 +1,149 @@
+$fa-font-path: "/webfonts";
+
+@import 'bootstrap';
+@import "fontawesome/fontawesome";
+@import "fontawesome/light";
+@import 'fonts';
+
+
+// TYPOGRAPHY //////////////////////////////////////////////////////////////////
+html[lang="ar"] body, *[lang="ar"] {
+  font-family: 'Cairo', sans-serif;
+}
+
+
+// i18n ////////////////////////////////////////////////////////////////////////
+.language-switcher {
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  background-color: $gray-300;
+}
+
+
+// Navbar //////////////////////////////////////////////////////////////////////
+.main-navbar {
+  min-height: 110px;
+  //flex-wrap: nowrap;
+
+  @include media-breakpoint-down(xs) {
+    .navbar-brand {
+      flex-basis: 60%;
+    }
+  }
+
+  .nav-link {
+    font-size: 1.2rem;
+  }
+}
+
+
+// HERO ////////////////////////////////////////////////////////////////////////
+$hero-gradient-color: map-get($theme-colors, brand);
+
+.hero {
+  background-color: map-get($theme-colors, brand);
+  background: linear-gradient(rgba($hero-gradient-color,.80),
+                              rgba($hero-gradient-color,1)),
+              url('../../images/banner_bw.jpg');
+  background-position: 50% 22.5%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+// SERVICES ////////////////////////////////////////////////////////////////////
+.special-header {
+  border-left: 0.5rem solid map-get($theme-colors, accent-light);
+  padding-left: 0.5rem;
+  margin-left: -1rem;
+}
+
+
+// CUSTOMERS ///////////////////////////////////////////////////////////////////
+.customerList {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  @include media-breakpoint-up(md) {
+    //flex-wrap: nowrap;
+  }
+}
+
+.customerList__item {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: 100%;
+  text-align: center;
+
+  @include media-breakpoint-up(sm) {
+    flex-basis: 40%;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    filter: grayscale(33.33%);
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .customerList__item--energy {
+   flex-basis: 42%;
+  }
+  .customerList__item--finance {
+   flex-basis: 17%;
+  }
+  .customerList__item--pensions {
+   flex-basis: 27%;
+  }
+  .customerList__item--ipa {
+   flex-basis: 17%;
+  }
+  .customerList__item--civil {
+   flex-basis: 27%;
+  }
+  .customerList__item--daco {
+   flex-basis: 27%;
+  }
+  .customerList__item--kfmc {
+   flex-basis: 17%;
+  }
+  .customerList__item--pnu {
+   flex-basis: 23%;
+  }
+  .customerList__item--scth {
+   flex-basis: 28%;
+  }
+  .customerList__item--kaec {
+   flex-basis: 33%;
+  }
+}
+
+
+// TEAM ////////////////////////////////////////////////////////////////////////
+.team .card {
+  height: 100%;
+
+  @include media-breakpoint-up(xs) {
+    min-height: 240px;
+  }
+
+  @include media-breakpoint-up(md) {
+    min-height: 270px;
+  }
+}
+
+
+// CONTACTFORM /////////////////////////////////////////////////////////////////
+.contactform {
+  overflow: hidden;
+}
+
+
+// MISC ////////////////////////////////////////////////////////////////////////
+.text-fixedwidth {
+  font-family: monospace;
+}

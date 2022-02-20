@@ -1,0 +1,274 @@
+{{ define "main" }}
+<!-- NAV -->
+<div class="container">
+  <nav class="navbar navbar-light navbar-expand-md main-navbar">
+    <a class="navbar-brand align-self-end" href='{{ "/" | relLangURL }}'>
+      <img src='{{ "/images/logo.png" | relURL }}'
+        alt="International Competitiveness EST. for Technology"
+        class="img-fluid">
+    </a>
+
+    <button class="navbar-toggler mb-2 align-self-end" type="button"
+      data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse mb-2 align-self-end" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+      {{ range .Site.Menus.main -}}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+        </li>
+      {{- end }}
+      </ul>
+    </div>
+
+    {{ if .IsTranslated }}
+      <div class="language-switcher rounded-bottom px-3 py-1">
+        {{ range .Translations }}
+          <a href="{{ .Permalink | relURL }}"
+            lang="{{ .Site.Language }}"
+            class="text-dark">
+            {{- .Site.Params.languageName -}}
+          </a><i class="fal fa-fw fa-globe ml-1"></i>
+        {{ end }}
+      </div>
+    {{ end }}
+  </nav>
+</div>
+
+
+<!-- Hero -->
+<div class="container-fluid py-5 hero">
+  <div class="container text-center text-light">
+    <h1 class="h2">{{ .Params.hero_title }}</h1>
+    <p class="lead mx-auto">
+      {{ .Params.hero_text }}
+    </p>
+    <a class="btn btn-outline-light btn-lg shadow"
+      href='{{ .Params.hero_button_link | relURL }}'>
+      {{ .Params.hero_button_text }}<i class="fal fa-file-pdf fa-lg ml-3"></i>
+    </a>
+  </div>
+</div>
+
+
+<!-- M/V -->
+<div class="container-fluid py-4 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1 class="h2 text-accent-dark">{{ i18n "mission" }}</h1>
+        <p class="lead text-justify">{{ .Params.mission }}</p>
+      </div>
+      <div class="col-md-6">
+        <h1 class="h2 text-accent-dark">{{ i18n "vision" }}</h1>
+        <p class="lead text-justify">{{ .Params.vision }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Services -->
+<section id="services" class="container py-5">
+  <header>
+    <h2 class="text-accent-dark">{{ i18n "services" }}</h2>
+    <p class="lead">
+      {{ .Params.services_into }}
+    </p>
+  </header>
+
+  <div class="row">
+    {{ range .Params.services }}
+      {{ if isset . "services" }}
+        {{ $.Scratch.Set "colCount" "col-12" }}
+      {{ else }}
+        {{ $.Scratch.Set "colCount" "col-md-6" }}
+      {{ end }}
+
+      <div class='{{ $.Scratch.Get "colCount" }} my-3'>
+        <h3 class="h4 text-brand special-header">{{ .title }}</h3>
+        <p class="text-justify">{{ .description }}</p>
+
+        {{ with .services }}
+          <div class="row ml-md-2">
+            {{ range . }}
+              <div class="col-md-6 my-2">
+                <h4 class="h5">{{ .title }}</h4>
+                <p class="text-justify">{{ .description }}<p>
+              </div>
+            {{ end }}
+          </div>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+</section>
+
+<section class="container-fluid py-5 bg-light">
+  <div class="container">
+    <h3 class="h4 text-brand">{{ .Params.other_services_title }}</h3>
+    <ul class="ml-md-2 mt-4">
+      {{ range .Params.other_services }}
+        <li class="my-2">{{ . }}</li>
+      {{ end }}
+    </ul>
+  </div>
+</section>
+
+
+<!-- Customers -->
+<section id="customers" class="container-fluid py-5 customers">
+  <div class="container">
+    <h2 class="text-accent-dark text-center">{{ .Params.customers_title }}</h2>
+    <ul class="list-unstyled mb-0 customerList">
+    {{ range .Params.customers }}
+      <li class="customerList__item {{ .classList }} mt-5">
+        <img src='{{ .logo | relURL }}'
+          alt="{{ .name }}" />
+      </li>
+    {{ end }}
+    </ul>
+  </div>
+</section>
+
+
+<!-- Team -->
+<section id="team" class="container-fluid py-5 bg-accent-light text-light team">
+  <div class="container">
+    <header>
+      <h2>{{ .Params.team_title }}</h2>
+      <p class="lead">{{ .Params.team_intro }}</p>
+    </header>
+
+    <div class="row">
+      {{ range .Params.team }}
+        <div class="col-md-6 col-xl-4 py-3">
+          <div class="card text-dark shadow-sm">
+            <div class="card-body">
+              <header>
+                <h3 class="h5 text-brand">{{ .name }}</h3>
+                <p class="text-secondary">{{ .title }}</p>
+              </header>
+              <hr>
+              <p>{{ .experience }}</p>
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer id="contact">
+  <div class="container-fluid bg-light py-5">
+    <div class="container">
+      <div class="row">
+        <address class="col-md-6">
+          <p class="h3 text-brand">{{ .Params.address_company }}</p>
+          <p>{{ .Params.address_line_1 }}<br>
+          {{ .Params.address_line_2 }}</p>
+          <ul class="text-fixedwidth list-unstyled">
+            <li>
+              <i class="fal fa-fw fa-map fa-lg"></i>
+              <a href="https://goo.gl/maps/e8WVj5gxhbR2">
+                {{ i18n "directions" }}
+              </a>
+            </li>
+            <li>
+              <i class="fal fa-fw fa-phone fa-lg"></i>
+              <bdo dir="ltr">{{ .Params.address_phone }}</bdo>
+            </li>
+            <li>
+              <i class="fal fa-fw fa-mobile fa-lg"></i>
+              <bdo dir="ltr">{{ .Params.address_mobile_1 }}</bdo>
+            </li>
+            <li>
+              <i class="fal fa-fw fa-mobile fa-lg"></i>
+              <bdo dir="ltr">{{ .Params.address_mobile_2 }}</bdo>
+            </li>
+            <li>
+              <i class="fal fa-fw fa-at fa-lg"></i>
+              <a href="mailto:{{ .Params.address_email }}">
+                {{ .Params.address_email }}
+              </a>
+            </li>
+          </ul>
+        </address>
+
+        <!-- Works through AWS Lambda -->
+        <form id="contactForm"
+          class="col-md-6 border p-3 rounded contactform"
+          action="https://mltm270xub.execute-api.eu-west-1.amazonaws.com/api/"
+          method="post" novalidate data-submitting="false">
+
+          <noscript class="d-block p-1 bg-danger text-white">
+            {{ i18n "js_required" }}
+          </noscript>
+
+          <div class="form-group">
+            <label for="contact-form-name">{{ i18n "input_name" }}</label>
+            <input id="contact-form-name" class="form-control"
+              name="name" dir="auto" type="text">
+          </div>
+
+          <div class="form-group">
+            <label for="contact-form-email">{{ i18n "input_email" }}</label>
+            <input id="contact-form-email" class="form-control"
+              name="email" dir="auto" type="text"
+              required
+              data-feedback="Please enter your email">
+            <div class="invalid-feedback">
+              {{ i18n "input_error_email" }}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-form-message">{{ i18n "input_message" }}</label>
+            <textarea id="contact-form-message" class="form-control"
+              rows="3" name="message" dir="auto"
+              required
+              data-feedback="Please enter your message"></textarea>
+            <div class="invalid-feedback">
+                {{ i18n "input_error_message" }}
+            </div>
+          </div>
+
+          <div style="position: absolute; left: -5000px;"
+            aria-hidden="true">
+            <input name="leave-empty" tabindex="-1" value="" type="text">
+          </div>
+
+          <input type="hidden" name="recepient" value="info@iceweb.sa">
+
+          <button class="btn btn-primary btn-block" type="submit"
+            disabled>
+            {{ i18n "input_submit" }}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid bg-dark text-light py-3 mini-footer">
+    <div class="container d-flex justify-content-between">
+      <small>{{ .Params.address_company }}</small>
+
+      {{ if .IsTranslated }}
+      <span class="">
+        {{ range .Translations }}
+          <a href="{{ .Permalink | relURL }}" class="text-light"><small>
+            {{- .Site.Params.languageName -}}
+          </a></small>
+        {{- end -}}
+        <i class="fal fa-fw fa-globe ml-1"></i>
+      </span>
+      {{ end }}
+    </div>
+  </div>
+</footer>
+{{ end }}

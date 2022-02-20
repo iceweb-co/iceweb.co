@@ -1,0 +1,49 @@
+baseURL = "https://www.iceweb.sa/"
+disableLanguages = []
+defaultContentLanguage = "ar"
+defaultContentLanguageInSubdir = true
+
+[languages]
+  [languages.ar]
+    languageName = "العربية"
+    title = "التنافسية الدولية للتقنية"
+    [languages.ar.params]
+      languageDirection = "rtl"
+    [[languages.ar.menu.main]]
+      url    = "#services"
+      name   = "الخدمات"
+      weight = 10
+    [[languages.ar.menu.main]]
+      url    = "#customers"
+      name   = "عملائنا"
+      weight = 20
+    [[languages.ar.menu.main]]
+      url    = "#team"
+      name   = "فريق العمل"
+      weight = 30
+    [[languages.ar.menu.main]]
+      url    = "#contact"
+      name   = "إتصل بنا"
+      weight = 40
+
+  [languages.en]
+    languageName = "English"
+    title = "ICE Technologies"
+    [languages.en.params]
+      languageDirection = "ltr"
+    [[languages.en.menu.main]]
+      url    = "#services"
+      name   = "Services"
+      weight = 10
+    [[languages.en.menu.main]]
+      url    = "#customers"
+      name   = "Customers"
+      weight = 20
+    [[languages.en.menu.main]]
+      url    = "#team"
+      name   = "Team"
+      weight = 30
+    [[languages.en.menu.main]]
+      url    = "#contact"
+      name   = "Contact"
+      weight = 40

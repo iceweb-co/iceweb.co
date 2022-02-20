@@ -1,0 +1,36 @@
+[mission]
+other = "الرسالة"
+
+[vision]
+other = "الرؤية"
+
+[services]
+other = "الخدمات"
+
+[directions]
+other = "موقعنا"
+
+[phone]
+other = "هاتف"
+
+[mobile]
+other = "جوال"
+
+[js_required]
+other = "النموذج التالي يحتاج الى Javascript ليعمل بالشكل الصحيح.الرجاء التواصل معنا عن طريق البريد الالكتروني."
+
+[input_name]
+other = "الاسم"
+
+[input_email]
+other = "البريد الالكتروني"
+[input_error_email]
+other = "الرجاء ادخال بريدك الالكتروني"
+
+[input_message]
+other = "الرسالة"
+[input_error_message]
+other = "الرجاء ادخال رسالتك"
+
+[input_submit]
+other = "ارسال"

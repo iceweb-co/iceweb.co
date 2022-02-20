@@ -1,0 +1,63 @@
+name: Business
+price: 541
+
+description: |
+  Enhanced office suite\
+  __Unlimited storage__ and __archiving__
+moreDetails: |
+  For the complete list of features please refer to the
+  [G Suite Business support page.](https://support.google.com/a/answer/6034782?hl=en&ref_topic=6043588)
+
+features:
+  - description: Business Gmail
+    anchor: https://gsuite.google.com/products/gmail/
+    icon: 'gmail.*'
+
+  - description: Video & audio conferencing
+    anchor: https://gsuite.google.com/products/meet/
+    icon: 'meet.*'
+
+  - description: Team chat
+    anchor: https://gsuite.google.com/products/chat/
+    icon: 'chat.*'
+
+  - description: Google Calendar
+    anchor: https://gsuite.google.com/products/calendar/
+    icon: 'calendar.*'
+
+  - description: Docs, Sheets and Slides
+    anchor: https://gsuite.google.com/products/docs/
+    icon: 'docs.*'
+
+  - description: Unlimited storage
+    anchor: https://gsuite.google.com/products/drive/
+    icon: 'drive.*'
+
+  - description: Admin & security control
+    anchor: https://gsuite.google.com/products/admin/
+    icon: 'admin.*'
+
+  - description: 24/7 support by email, phone and chat
+    anchor: https://gsuite.google.com/support/
+    icon: 'support.*'
+
+  - description: Search across all G Suite
+    anchor: https://gsuite.google.com/products/cloud-search/
+    icon: 'search.*'
+
+  - description: Email & Drive archiving
+    anchor: https://gsuite.google.com/products/vault/
+    icon: 'vault.*'
+
+  - description: Shared spaces for teams
+    anchor: https://support.google.com/a/answer/7212025?hl=en&ref_topic=7337266
+    icon: 'team-drives.*'
+
+  - description: Advanced reports
+    anchor: https://support.google.com/a/answer/4579696
+
+  - description: Drive activity alerts
+    anchor: https://support.google.com/a/answer/3230421
+
+  - description: Restrict Drive sharing
+    anchor: https://support.google.com/a/answer/60781

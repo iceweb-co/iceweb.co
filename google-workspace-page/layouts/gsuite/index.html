@@ -1,0 +1,228 @@
+{{ define "title" }} - {{ .Title }}{{ end }}
+{{ define "main" }}
+<div class="container px-0">
+  <nav class="navbar mainNavbar">
+    <a class="navbar-brand" href='{{ .URL }}'>
+      <img alt="ICEWEB"
+        src='{{ "logo-x48.png" | relURL }}'
+        srcset='{{ "logo-x48.png" | relURL }} 1x,
+                {{ "logo-x96.png" | relURL }} 2x' />
+    </a>
+    <div class="navbar-brand mr-0">
+      <img alt="G Suite"
+        src='{{ "gsuite-x48.png" | relURL }}'
+        srcset='{{ "gsuite-x48.png" | relURL }} 1x,
+                {{ "gsuite-x96.png" | relURL }} 2x' />
+    </div>
+  </nav>
+</div>
+
+<section class="container-fluid hero py-5 px-0 bg-primary text-white">
+  <div class="container">
+    <header>
+      <h1 class="display-3">
+        <a class="text-white" target="_blank"
+          href="https://cloud.withgoogle.com/partners/detail/?id=CIGAgICAgID1%2FgE%3D&language=en">
+          Google Cloud partner based in Riyadh
+          <sup><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M384 320c-17.67 0-32 14.33-32 32v96H64V160h96c17.67 0 32-14.32 32-32s-14.33-32-32-32L64 96c-35.35 0-64 28.65-64 64V448c0 35.34 28.65 64 64 64h288c35.35 0 64-28.66 64-64v-96C416 334.3 401.7 320 384 320zM488 0H352c-12.94 0-24.62 7.797-29.56 19.75c-4.969 11.97-2.219 25.72 6.938 34.88L370.8 96L169.4 297.4c-12.5 12.5-12.5 32.75 0 45.25C175.6 348.9 183.8 352 192 352s16.38-3.125 22.62-9.375L416 141.3l41.38 41.38c9.156 9.141 22.88 11.84 34.88 6.938C504.2 184.6 512 172.9 512 160V24C512 10.74 501.3 0 488 0z"/></svg></sup>
+        </a>
+      </h1>
+    </header>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-muted">We migrated many companies to G Suite</h2>
+    <ul class="list-unstyled mb-0 customerList">
+    {{ range .Params.customers }}
+      <li class="customerList__item {{ .classList }}">
+      {{ $logo := $.Resources.GetMatch .logo }}
+        <img src='{{ $logo.RelPermalink }}'
+          alt="{{ .name }}" />
+      </li>
+    {{ end }}
+    </ul>
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="h1 font-weight-bold">Benefits</h2>
+    <ul class="list-unstyled row justify-content-between">
+      <li class="col-md-6">
+        <h3>Data Migration</h3>
+        <p>We provide complete data migration from your existing system to G Suite without any downtime. We migrate all the emails, calendar events and contacts for your entire organization.</p>
+      </li>
+
+      <li class="col-md-6">
+        <h3>On-site User Training</h3>
+        <p>We get your users up and running with G Suite with on-site training that covers the essentials plus tips & tricks for various G Suite apps including Gmail, Calendar and Hangouts. Additionally, we train your users how to work and collaborate using Google Drive.</p>
+      </li>
+
+      <li class="col-md-6">
+        <h3>G Suite Admin Training</h3>
+        <p>Your IT personnel get a comprehensive overview of all G Suite features and the administrative tasks available to them across the entire G Suite which include user management, mobile device management, security and many more. Furthermore, we can provide training for using Google Apps Script which provides powerful programmatic access to most of G Suite's admin tasks.</p>
+      </li>
+
+      <li class="col-md-6">
+        <h3>Active DNS Monitoring</h3>
+        <p>We keep an eye on you domain names and their DNS configuration and alert you immediately if any change that might affect emails in your organization. We also alert you when your domain is about to expire.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="alert alert-light" role="alert">
+      Google recently increased the price for both the G Suite Basic and
+      Business editions by 20%. <a href="https://cloud.google.com/blog/products/g-suite/new-pricing-for-g-suite-basic-and-business-editions">Learn more</a>.
+    </div>
+    <h2 class="h1 font-weight-bold">Pricing</h2>
+    <p class="lead">
+      A <a href="https://gsuite.google.com/compare-editions/">detailed comparison</a> between G Suite editions is available at the <a href="https://gsuite.google.com/compare-editions/">official G Suite website</a>. If you have any questions about the different editions, contact us right away.
+    </p>
+
+    <p class="text-info">Shown prices are not inclusive of VAT</p>
+
+    <div class="row mb-3 no-gutters">
+    {{ range .Params.pricing.data }}
+      {{ $data := (index $.Site.Data $.Params.pricing.dataDir .) }}
+      <div class="col-md-4 col-lg">
+        <div class="pricingTable card mb-4 box-shadow">
+          <div class="card-header">
+            <h3 class="my-0 font-weight-normal">
+              {{- $data.name -}}
+            </h3>
+          </div>
+
+          <div class="card-body">
+            <p class="mt-3 mb-4">
+              {{- $data.description | markdownify -}}
+            </p>
+            <div class="h1 card-title pricing-card-title">
+              {{- $data.price }} SAR<br/>
+              <small class="text-muted">SAR / user / year</small>
+            </div>
+            <p>Paid yearly</p>
+          </div>
+
+          <div class="list-group list-group-flush">
+          {{ range $data.features }}
+            {{ $iconPath := (printf "%s/%s" $.Params.pricing.iconsDir .icon) }}
+            <a class="list-group-item list-group-item-action"
+              href="{{ .anchor }}">
+              {{- with $.Resources.GetMatch $iconPath -}}
+              <img class="pricingTable__icon"
+                src='{{ (.Resize "x32").RelPermalink }}'
+                srcset='{{ (.Resize "x32").RelPermalink }} 1x,
+                        {{ (.Resize "x64").RelPermalink }} 2x' />
+              {{ end }}
+              <div class="pricingTable__listText">{{- .description -}}</div>
+            </a>
+          {{ end }}
+          </div>
+
+          <div class="card-footer">
+            {{ $data.moreDetails | markdownify }}
+          </div>
+        </div>
+
+        {{ with $data.footnote }}
+        <p class="px-4 text-muted">
+          {{ . | markdownify }}
+        </p>
+        {{ end }}
+      </div>
+    {{ end }}
+    <div class="w-100"></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="py-5 bg-accent-dark contactForm">
+  <div class="container">
+    <div class="row justify-content-between align-items-center">
+      <div class="col-md col-xl-5 text-light align-self-start order-md-12">
+        <h2 class="h1 font-weight-bold">Contact Us</h2>
+        <p class="lead">
+          Through our email, <a href="mailto:gsuite@iceweb.co">gsuite@iceweb.co</a> or, by using our contact form.
+        </p>
+      </div>
+
+      <div class="col-md col-xl-5">
+        <div class="contactForm__container bg-light py-4 px-3 p-md-4">
+          <!-- Works through AWS Lambda -->
+          <form id="contactForm" class="contactForm__form"
+            action="https://mltm270xub.execute-api.eu-west-1.amazonaws.com/api/"
+            method="post" novalidate data-submitting="false">
+
+            <noscript class="d-block p-1 bg-danger text-white">
+              This form requires JavaScript to work. Please contact us by email.
+            </noscript>
+
+            <div class="form-group">
+              <label for="contact-form-name">Name</label>
+              <input id="contact-form-name" class="form-control"
+                name="name" dir="auto" type="text">
+            </div>
+
+            <div class="form-group">
+              <label for="contact-form-email">Email</label>
+              <input id="contact-form-email" class="form-control"
+                name="email" dir="auto" type="text"
+                required
+                data-feedback="Please enter your email">
+              <div class="invalid-feedback">
+                Please enter a valid email address
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-form-message">Message</label>
+              <textarea id="contact-form-message" class="form-control"
+                rows="3" name="message" dir="auto"
+                required
+                data-feedback="Please enter your message"></textarea>
+              <div class="invalid-feedback">
+                Please enter your message
+              </div>
+            </div>
+
+            <div style="position: absolute; left: -5000px;"
+              aria-hidden="true">
+              <input name="leave-empty" tabindex="-1" value="" type="text">
+            </div>
+
+            <button class="btn btn-primary btn-block" type="submit"
+              disabled>
+              Send
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer py-5 bg-dark text-light">
+  <div class="footer__bg container">
+    <div class="footer__content">
+      <h2 class="h1 font-weight-bold">Legal</h2>
+      <address>
+        International Competitiveness Est. for Technology<br/>
+        Riyadh 12812, Saudi Arabia<br/>
+        Company no: 1010318422<br/>
+        VAT no: 300442113700003<br/>
+      </address>
+
+      <ul class="list-unstyled">
+        <li><a href='{{ "/legal/terms" | relLangURL }}'>Terms & Conditions</a></li>
+        <li><a href='#'>Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+{{ end }}

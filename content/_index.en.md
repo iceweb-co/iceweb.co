@@ -154,8 +154,8 @@ team:
 
 
 address_company: International Competitiveness Est.
-address_line_1: New Aqaria Towers,  Salah Ad Din Al Ayyubi Rd - Az Zahra
-address_line_2: Building 1, 6th floor
+address_line_1: Al Umam Commercial Center,  Salah Ad Din Al Ayyubi Rd - Al Dubbat
+address_line_2: First floor, Office 9
 address_phone: (+966) 11 291 8700
 address_mobile_1: (+966) 55 590 0190
 address_mobile_2: (+966) 56 947 6115

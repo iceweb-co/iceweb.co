@@ -158,3 +158,4 @@ address_mobile_1: (+٩٦٦) ٥٥ ٥٩٠ ٠١٩٠
 address_mobile_2: (+٩٦٦) ٥٦ ٩٤٧ ٦١١٥
 address_email: info@iceweb.sa
 ---
+اختبار عربي

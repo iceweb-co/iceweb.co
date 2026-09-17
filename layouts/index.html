@@ -26,12 +26,13 @@
 
     {{ if .IsTranslated }}
       <div class="language-switcher rounded-bottom px-3 py-1">
-        {{ range .Translations }}
-          <a href="{{ .Permalink | relURL }}"
-            lang="{{ .Site.Language }}"
-            class="text-dark">
-            {{- .Site.Params.languageName -}}
-          </a><i class="fal fa-fw fa-globe ml-1"></i>
+       {{ range .Translations }}
+  <a href="{{ .Permalink | relURL }}"
+    lang="{{ .Lang }}"
+    class="text-dark">
+    {{- .Language.LanguageName -}}
+  </a><i class="fal fa-fw fa-globe ml-1"></i>
+{{ end }}
         {{ end }}
       </div>
     {{ end }}

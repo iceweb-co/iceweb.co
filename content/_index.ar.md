@@ -3,7 +3,7 @@ hero_title: .عن الشركة
 hero_text: |
   التنافسية الدولية للتقنية هي مؤسسة وطنية تهدف إلى تقديم الاستشارات التقنية المتكاملة للمنظمات والهيئات الحكومية والمشاركة في إعادة هيكلة الأنظمة والإجراءات لتعزيز الوصول لأهداف رؤية المملكة العربية السعودية ٢٠٣٠
 hero_button_text: بروفايل الشركة
-hero_button_link: file:///C:/Users/user/Downloads/ICWEB-Profile-Eng-mail%20(1).pdf
+hero_button_link: ICWEB-Profile-Ara-mail (1).pdf
 
 
 mission: |
